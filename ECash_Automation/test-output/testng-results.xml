@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Click on User Drop Down<br>]]>
+    </line>
+    <line>
+      <![CDATA[Select the User as e100001<br>]]>
+    </line>
+    <line>
+      <![CDATA[Click on Store Dropdown<br>]]>
+    </line>
+    <line>
+      <![CDATA[Select the Store as 1532<br>]]>
+    </line>
+    <line>
+      <![CDATA[Click on Menu Icon<br>]]>
+    </line>
+    <line>
+      <![CDATA[Wait until Cash Management Option is enabled<br>]]>
+    </line>
+    <line>
+      <![CDATA[Click on Cash Management Option<br>]]>
+    </line>
+    <line>
+      <![CDATA[Click on Other Cash Functions Menu<br>]]>
+    </line>
+    <line>
+      <![CDATA[Other Cash Functions Menu opened<br>]]>
+    </line>
+    <line>
+      <![CDATA[Click on Group Sales Icon<br>]]>
+    </line>
+    <line>
+      <![CDATA[Group Sales Link Clicked<br>]]>
+    </line>
+    <line>
+      <![CDATA[Tax Exempt Sales Tab Clicked and Opened<br>]]>
+    </line>
+    <line>
+      <![CDATA[03/08/2016 was equal to or after 03/03/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[03/03/2016 was equal to or after 03/01/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[03/01/2016 was equal to or after 02/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/29/2016 was equal to or after 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or after 02/25/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/25/2016 was equal to or after 02/18/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/18/2016 was equal to or after 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or after 02/04/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/04/2016 was equal to or after 01/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[01/29/2016 was equal to or after 01/25/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[01/25/2016 was equal to or after 01/15/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[Click on the Ascending Button for Date & Time <br>]]>
+    </line>
+    <line>
+      <![CDATA[01/15/2016 was equal to or before 01/25/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[01/25/2016 was equal to or before 01/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[01/29/2016 was equal to or before 02/04/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/04/2016 was equal to or before 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/09/2016 was equal to or before 02/18/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/18/2016 was equal to or before 02/25/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/25/2016 was equal to or before 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/26/2016 was equal to or before 02/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[02/29/2016 was equal to or before 03/01/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[03/01/2016 was equal to or before 03/03/2016<br>]]>
+    </line>
+    <line>
+      <![CDATA[03/03/2016 was equal to or before 03/08/2016<br>]]>
+    </line>
+  </reporter-output>
+  <suite name="Regression Test Suite" duration-ms="88332" started-at="2016-04-08T06:56:48Z" finished-at="2016-04-08T06:58:17Z">
+    <groups>
+    </groups>
+    <test name="Drawer Countdown  - US 84" duration-ms="88332" started-at="2016-04-08T06:56:48Z" finished-at="2016-04-08T06:58:17Z">
+      <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@25790e]" name="setUp" is-config="true" duration-ms="45460" started-at="2016-04-08T12:26:49Z" finished-at="2016-04-08T12:27:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://iit.ebos.qsrsoft.com/#]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage(com.mcdebos.ecash.excelutils.GroupSalesData)[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@25790e]" name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" duration-ms="40978" started-at="2016-04-08T12:27:34Z" description="Verifying user is able to Sort(Ascending/Descending Order) by Tax Exempt Sales entries on cloud app." data-provider="TC_1298" finished-at="2016-04-08T12:28:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.mcdebos.ecash.excelutils.GroupSalesData@16f416f]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Click on User Drop Down<br>]]>
+            </line>
+            <line>
+              <![CDATA[Select the User as e100001<br>]]>
+            </line>
+            <line>
+              <![CDATA[Click on Store Dropdown<br>]]>
+            </line>
+            <line>
+              <![CDATA[Select the Store as 1532<br>]]>
+            </line>
+            <line>
+              <![CDATA[Click on Menu Icon<br>]]>
+            </line>
+            <line>
+              <![CDATA[Wait until Cash Management Option is enabled<br>]]>
+            </line>
+            <line>
+              <![CDATA[Click on Cash Management Option<br>]]>
+            </line>
+            <line>
+              <![CDATA[Click on Other Cash Functions Menu<br>]]>
+            </line>
+            <line>
+              <![CDATA[Other Cash Functions Menu opened<br>]]>
+            </line>
+            <line>
+              <![CDATA[Click on Group Sales Icon<br>]]>
+            </line>
+            <line>
+              <![CDATA[Group Sales Link Clicked<br>]]>
+            </line>
+            <line>
+              <![CDATA[Tax Exempt Sales Tab Clicked and Opened<br>]]>
+            </line>
+            <line>
+              <![CDATA[03/08/2016 was equal to or after 03/03/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[03/03/2016 was equal to or after 03/01/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[03/01/2016 was equal to or after 02/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/29/2016 was equal to or after 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or after 02/25/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/25/2016 was equal to or after 02/18/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/18/2016 was equal to or after 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or after 02/04/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/04/2016 was equal to or after 01/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[01/29/2016 was equal to or after 01/25/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[01/25/2016 was equal to or after 01/15/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[Click on the Ascending Button for Date & Time <br>]]>
+            </line>
+            <line>
+              <![CDATA[01/15/2016 was equal to or before 01/25/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[01/25/2016 was equal to or before 01/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[01/29/2016 was equal to or before 02/04/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/04/2016 was equal to or before 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/09/2016 was equal to or before 02/18/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/18/2016 was equal to or before 02/25/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/25/2016 was equal to or before 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/26/2016 was equal to or before 02/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[02/29/2016 was equal to or before 03/01/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[03/01/2016 was equal to or before 03/03/2016<br>]]>
+            </line>
+            <line>
+              <![CDATA[03/03/2016 was equal to or before 03/08/2016<br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@25790e]" name="tearDown" is-config="true" duration-ms="1438" started-at="2016-04-08T12:28:15Z" finished-at="2016-04-08T12:28:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales -->
+    </test> <!-- Drawer Countdown  - US 84 -->
+  </suite> <!-- Regression Test Suite -->
+</testng-results>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression Test Suite]">
+  <parameter name="browser" value="firefox"/>
+  <parameter name="url" value="https://iit.ebos.qsrsoft.com/#"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="com.mcdebos.common.listeners.TestResultListener"/>
+  </listeners>
+  <test name="Drawer Countdown  - US 84(failed)">
+    <classes>
+      <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
+        <methods>
+          <include name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales -->
+    </classes>
+  </test> <!-- Drawer Countdown  - US 84(failed) -->
+</suite> <!-- Failed suite [Regression Test Suite] -->

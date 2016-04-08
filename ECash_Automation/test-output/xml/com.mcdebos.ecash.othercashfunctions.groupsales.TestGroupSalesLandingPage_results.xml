@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Drawer Countdown  - US 84"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="22.157">
+  <properties />
+  
+  
+            <testcase name="navigateIntoSubFunctionsOfGroupSales" time="9.614" classname="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage" />
+                <testcase name="pathwayToGroupSales" time="7.726" classname="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage" />
+                <testcase name="identificationOfGroupSalesInCashSystem" time="4.817" classname="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage" />
+      
+</testsuite>

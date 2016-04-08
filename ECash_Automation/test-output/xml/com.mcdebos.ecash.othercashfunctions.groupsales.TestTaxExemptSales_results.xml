@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Drawer Countdown  - US 84"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="40.978">
+  <properties />
+  
+  
+            <testcase name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" time="40.978" classname="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales" />
+      
+</testsuite>

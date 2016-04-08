@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/data"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/guice-4.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/junit-dep-4.11.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/jxl-2.6.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/reportng-1.1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/testng-6.8.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/velocity-dep-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/selenium-java-2.45.0-srcs.jar"/>
+	<classpathentry exported="true" kind="lib" path="LibraryFiles/selenium-java-2.45.0.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/support/Documents/selenium-server-standalone-2.49.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
