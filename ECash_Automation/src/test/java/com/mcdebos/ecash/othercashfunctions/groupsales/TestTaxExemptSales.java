@@ -34,6 +34,8 @@ public class TestTaxExemptSales extends PageObjects {
 		wait = new WebDriverWait(driver, 50);
 		navigate(url);
 	}
+	
+	//Ankur Comment Testing GitHub Push
 
 	@Test(testName = "Verifying that user is able to view the tax exempt sale entries for the selected date range(e.g. 90 days, 6 months, 9 months , 12 months) on Tax Exempt Sales landing page on cloud app. ", description = "Verifying that user is able to view the tax exempt sale entries for the selected date range(e.g. 90 days, 6 months, 9 months , 12 months) on Tax Exempt Sales landing page on cloud app..", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 0)
 	@TestInfo(testCaseID = "TC 3169", userStory = "US592", testCaseDescription = "Verifying that user is able to view the tax exempt sale entries for the selected date range(e.g. 90 days, 6 months, 9 months , 12 months) on Tax Exempt Sales landing page on cloud app.")
