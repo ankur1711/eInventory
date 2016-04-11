@@ -52,6 +52,7 @@ public class TaxExemptPage extends Common {
 	}
 
 	public WebElement taxExemptStartDatePrevButton() {
+		// wait.until(ExpectedConditions)
 		return driver.findElement(By
 				.xpath("(//button[@class='xdsoft_prev'])[9]"));
 	}
@@ -184,35 +185,31 @@ public class TaxExemptPage extends Common {
 	}
 
 	public void movetToTopScreen() {
+		sleep(500);
 		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
 		Reporter.log("Move to the top of the screen<br>");
 	}
 
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[2]/label[text()='Date & Time']")
+	@FindBy(xpath = "(//label[text()='Date & Time'])[1]")
 	public WebElement taxExemptDateAndTime;
 
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[3]/label[text()='Register']")
+	@FindBy(xpath = "(//label[text()='Register'])[1]")
 	public WebElement taxExemptRegisterField;
 
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[4]/label[text()='Amount']")
+	@FindBy(xpath = "(//label[text()='Amount'])[1]")
 	public WebElement taxExemptAmountField;
 
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[5]/label[text()='User']")
+	@FindBy(xpath = "(//label[text()='User'])[1]")
 	public WebElement taxExemptUserField;
 
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[6]/label[text()='Organization']")
+	@FindBy(xpath = "(//label[text()='Organization'])[1]")
 	public WebElement taxExemptOrganizationField;
 
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[14]/label[text()='Tax ID Number']")
-	public WebElement taxIDNumberField;
-
-	@FindBy(xpath = "//table[@id='tax_exempt_table']/thead/tr/th[15]/label[text()='Deposit Status']")
+	@FindBy(xpath = "(//label[contains(text(),'Deposit Status')])[2]")
 	public WebElement depositStatus;
 
-	/*
-	 * public void taxExemptDateAndTimeSorting(){ taxExemptDateAndTime.click();
-	 * Reporter.log("Date & Time to be clicked and sorted the value<br>"); }
-	 */
+	@FindBy(xpath = "//label[text()='Tax ID Number']")
+	public WebElement taxIDNumberField;
 
 	public void isTaxExemptSalesDetailsDisplayed() {
 		Reporter.log("Checking whether Drawer count details was displayed<br>");
@@ -270,16 +267,16 @@ public class TaxExemptPage extends Common {
 
 	public WebElement organizationTextBox() {
 		wait.until(ExpectedConditions.elementToBeClickable(By
-				.xpath("(//input[@id='validatedInput'])[1]")));
+				.xpath("//input[@id='tax_exempt_organization_input']")));
 		return driver.findElement(By
-				.xpath("(//input[@id='validatedInput'])[1]"));
+				.xpath("//input[@id='tax_exempt_organization_input']"));
 	}
 
 	public WebElement taxIdNumberTextBox() {
 		wait.until(ExpectedConditions.elementToBeClickable(By
-				.xpath("//input[@id='tax_exempt_organization_input']")));
+				.xpath("(//input[@id='validatedInput'])[1]")));
 		return driver.findElement(By
-				.xpath("//input[@id='tax_exempt_organization_input']"));
+				.xpath("(//input[@id='validatedInput'])[1]"));
 	}
 
 	public WebElement contactNameTextBox() {
@@ -358,6 +355,7 @@ public class TaxExemptPage extends Common {
 	}
 
 	public WebElement submitTaxExemptSalesModularWindow() {
+		Reporter.log("Submit button found");
 		return wait.until(ExpectedConditions.elementToBeClickable(By
 				.xpath("//div[@id='cancel_save']/eb-button[@id='save_te']")));
 
@@ -366,8 +364,7 @@ public class TaxExemptPage extends Common {
 	public void selectState(int state) {
 		Select stateDropDown = new Select(driver.findElement(By
 				.xpath("//select[@class='ebos-input form-control']")));
-		stateDropDown.selectByIndex(0);
-		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
+		stateDropDown.selectByIndex(state);
 		Reporter.log("Select State'" + state + "'from drop down");
 	}
 
@@ -459,10 +456,15 @@ public class TaxExemptPage extends Common {
 		Reporter.log("Click on the date " + expectedDate[1] + "<br>");
 	}
 
-	public List<WebElement> getListOfOrgamizationName() {
+	public List<WebElement> getListOfOrganizationName() {
 		return driver.findElements(By
 				.xpath("//table[@id='tax_exempt_table']//td[6]/span"));
 
+	}
+
+	public List<WebElement> getListOfTaxIdNumber() {
+		return driver.findElements(By
+				.xpath("//table[@id='tax_exempt_table']/tbody/tr/td[14]/span"));
 	}
 
 	public List<WebElement> getListOfUserID() {
@@ -502,5 +504,40 @@ public class TaxExemptPage extends Common {
 				By.xpath("//label[text()='Register']/../..//th[@aria-sort='descending'][1]"))
 				.click();
 		Reporter.log("Click on the Dscending Button for Register");
+	}
+
+	public List<WebElement> getListOfDepositStatus() {
+		return driver.findElements(By
+				.xpath("//table[@id='tax_exempt_table']/tbody//td[15]"));
+	}
+
+	@Deprecated
+	public WebElement editButton(int count) {
+		sleep(500);
+		wait.until(ExpectedConditions.elementToBeClickable(By
+				.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
+						+ count + "]")));
+		Reporter.log("Click on " + count + " Edit Button");
+		return driver
+				.findElement(By
+						.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
+								+ count + "]"));
+	}
+	
+	public void clickOnEditButton(int count) {
+		sleep(2000);
+		WebElement editButton = driver
+				.findElement(By
+						.xpath("(//table[@id='tax_exempt_table']//button[@value='Edit'])["
+								+ count + "]"));
+//		retryingFindClick(By.xpath("(//table[@id='tax_exempt_table']//button[@value='Edit'])["+ count + "]"));
+		action.moveToElement(editButton).click().perform();
+		Reporter.log("Click on " + count + " Edit Button");
+	}
+	
+	public void clickOnEditButton(WebElement editBtn) {
+		sleep(1000);
+		action.moveToElement(editBtn).click().perform();
+		Reporter.log("Click on Edit Button");
 	}
 }

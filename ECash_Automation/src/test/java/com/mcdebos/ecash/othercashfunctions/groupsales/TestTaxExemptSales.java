@@ -16,12 +16,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import sun.text.normalizer.CharTrie.FriendAgent;
-
 import com.mcdebos.common.annotations.TestInfo;
 import com.mcdebos.ecash.excelutils.GroupSalesData;
 import com.mcdebos.ecash.pages.PageObjects;
-import com.sun.jna.platform.win32.WinNT.WELL_KNOWN_SID_TYPE;
 
 public class TestTaxExemptSales extends PageObjects {
 	public WebDriver driver;
@@ -34,14 +31,13 @@ public class TestTaxExemptSales extends PageObjects {
 		wait = new WebDriverWait(driver, 50);
 		navigate(url);
 	}
-	
-	//Ankur Comment Testing GitHub Push
 
 	@Test(testName = "Verifying that user is able to view the tax exempt sale entries for the selected date range(e.g. 90 days, 6 months, 9 months , 12 months) on Tax Exempt Sales landing page on cloud app. ", description = "Verifying that user is able to view the tax exempt sale entries for the selected date range(e.g. 90 days, 6 months, 9 months , 12 months) on Tax Exempt Sales landing page on cloud app..", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 0)
 	@TestInfo(testCaseID = "TC 3169", userStory = "US592", testCaseDescription = "Verifying that user is able to view the tax exempt sale entries for the selected date range(e.g. 90 days, 6 months, 9 months , 12 months) on Tax Exempt Sales landing page on cloud app.")
 	public void viewDateRangeOptions(GroupSalesData data)
 			throws InterruptedException, ParseException {
 		// select user number
+
 		getHomePage(driver).selectUser(data.getUserNumber());
 		getHomePage(driver).selectStore(data.getStoreNumber());
 		getHomePage(driver).openOtherCashFunctionsMenu();
@@ -630,27 +626,24 @@ public class TestTaxExemptSales extends PageObjects {
 		// Verify the
 		List<WebElement> editButtonElemens = driver
 				.findElements(By
-						.xpath("//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"));
+						.xpath("//table[@id='tax_exempt_table']//button[@value='Edit']"));
+//		for(WebElement editButton : editButtonElemens) {
+//			getTaxExemptSalesPage(driver).clickOnEditButton(editButton);
+//		}
 		for (int count = 0; count < editButtonElemens.size(); count++) {
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")));
-			driver.findElement(
-					By.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")).click();
+			getTaxExemptSalesPage(driver).clickOnEditButton(count + 1);
 			Reporter.log("OPen the " + (count + 1)
 					+ " entry in Tax Exempt Sales<br>");
 			getTaxExemptSalesPage(driver).organizationTextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
-							.xpath("(//input[@id='validatedInput'])[1]")))
+							.xpath("//input[@id='tax_exempt_organization_input']")))
 					.clear();
 			getTaxExemptSalesPage(driver).organizationTextBox().sendKeys(
-					"abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyz");
+					"Test Org Name_" + Integer.toString(generateRandomNumber()));
 			getTaxExemptSalesPage(driver).taxIdNumberTextBox().click();
 			getTaxExemptSalesPage(driver).taxIdNumberTextBox().clear();
-			getTaxExemptSalesPage(driver).taxIdNumberTextBox().sendKeys(
-					"abcdefghijklmnopqrstuvwxyz12345");
+			getTaxExemptSalesPage(driver).taxIdNumberTextBox().sendKeys(Integer.toString(generateRandomNumber()));			
 			getTaxExemptSalesPage(driver).contactNameTextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
@@ -658,34 +651,37 @@ public class TestTaxExemptSales extends PageObjects {
 			getTaxExemptSalesPage(driver)
 					.contactNameTextBox()
 					.sendKeys(
-							"abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyz");
+							"Test Contact Name_" + Integer.toString(generateRandomNumber()));
 			getTaxExemptSalesPage(driver).addressLine1TextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
 							.xpath("//div[@id='detail_te0']/div[2]/div[1]/div/input")))
 					.clear();
-
 			getTaxExemptSalesPage(driver)
 					.addressLine1TextBox()
 					.sendKeys(
-							"abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyz");
+							"Test Address 1_" + Integer.toString(generateRandomNumber()));
 			getTaxExemptSalesPage(driver).addressLine2TextBox().click();
 			getTaxExemptSalesPage(driver).addressLine2TextBox().clear();
 			getTaxExemptSalesPage(driver)
 					.addressLine2TextBox()
 					.sendKeys(
-							"abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyz");
-
+							"Test Address 2_" + Integer.toString(generateRandomNumber()));
 			getTaxExemptSalesPage(driver).cityTextBox().click();
 			getTaxExemptSalesPage(driver).cityTextBox().clear();
 			getTaxExemptSalesPage(driver).cityTextBox().sendKeys(
-					"abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyz");
-			getTaxExemptSalesPage(driver).zipCodeTextBox().click();
+					"Test City_" + Integer.toString(generateRandomNumber()));
+			/*
+			 * Commented as the field property has been changed to take only a maximum of 5 characters
+			 * 
+			 * Done on 11-04-2016 by Jansi
+			 * 
+			 * getTaxExemptSalesPage(driver).zipCodeTextBox().click();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().clear();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().sendKeys("123456");
 			Assert.assertTrue(getTaxExemptSalesPage(driver)
 					.zipCodePopUpValidation().isDisplayed(),
-					"Zip Code error message is not dispaled");
+					"Zip Code error message is not displayed");*/
 			getTaxExemptSalesPage(driver).zipCodeTextBox().click();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().clear();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().sendKeys("12345");
@@ -695,14 +691,13 @@ public class TestTaxExemptSales extends PageObjects {
 			 * "Zip Code error message is dispaled When entering only 5 digits numeric values"
 			 * );
 			 */
-			getTaxExemptSalesPage(driver).selectState(0);
+			getTaxExemptSalesPage(driver).selectState(1);
 			getTaxExemptSalesPage(driver).emailTextBox().sendKeys(
-					"abcdefghijklmnopqrstuvwxyz1234567890123456789$%^&*");
-			getTaxExemptSalesPage(driver).phoneNumberTextBox().sendKeys(
-					"123456789");
+					"TestEmailAddr__" + Integer.toString(generateRandomNumber()) + "@mcd.com");
+			getTaxExemptSalesPage(driver).phoneNumberTextBox().sendKeys(Integer.toString(generateRandomNumber()));
 			getTaxExemptSalesPage(driver).submitTaxExemptSalesModularWindow()
 					.click();
-			getTaxExemptSalesPage(driver).movetToTopScreen();
+//			getTaxExemptSalesPage(driver).movetToTopScreen();
 		}
 
 	}
@@ -766,7 +761,7 @@ public class TestTaxExemptSales extends PageObjects {
 		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		sleep(1000);
 		List<WebElement> organizationNameList = getTaxExemptSalesPage(driver)
-				.getListOfOrgamizationName();
+				.getListOfOrganizationName();
 		for (WebElement organization : organizationNameList) {
 			String organizationDisplayedOnUI = organization.getText().trim();
 			Assert.assertEquals(organizationDisplayedOnUI, "Test Organization1");
@@ -895,10 +890,8 @@ public class TestTaxExemptSales extends PageObjects {
 		getTaxExemptSalesPage(driver).taxExemptRegisterField.click();
 		// Get all the register elements as it was in ascending order after
 		// clicked on Register button
-
 		List<WebElement> registerElementsDisplayedOnUIAscending = getTaxExemptSalesPage(
 				driver).getListOfRegisterElements();
-		System.out.println(registerElementsDisplayedOnUIAscending.size());
 		for (int count = 0; count < registerElementsDisplayedOnUIAscending
 				.size() - 1; count++) {
 			int firstRegisteIdDisplayedOnUI = Integer
@@ -907,16 +900,17 @@ public class TestTaxExemptSales extends PageObjects {
 			int secondRegisterIdDisplayedOnUI = Integer
 					.parseInt(registerElementsDisplayedOnUIAscending
 							.get(count + 1).getText().trim());
-			// Assert
+			// Verify the 
 			Assert.assertTrue(
 					firstRegisteIdDisplayedOnUI <= secondRegisterIdDisplayedOnUI,
 					"Register ID's are not Sorted in Asending Order");
+			Reporter.log(firstRegisteIdDisplayedOnUI + " was dislayed in ascending order<br>");
 		}
 		// Perform double click on Regiter
 		getTaxExemptSalesPage(driver).taxExemptRegisterField.click();
+		// Get all the Register elements as it was in descending order by default
 		List<WebElement> registerElementsDisplayedOnUIDDescending = getTaxExemptSalesPage(
 				driver).getListOfRegisterElements();
-		System.out.println(registerElementsDisplayedOnUIDDescending.size());
 		for (int count = 0; count < registerElementsDisplayedOnUIDDescending
 				.size() - 1; count++) {
 			int firstRegisterIdDislayedOnUIDescending = Integer
@@ -928,13 +922,13 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstRegisterIdDislayedOnUIDescending >= secondRegisterDisplayedOnUIDescending,
 					"Register ID is not displayed in Descending Order on UI");
+			Reporter.log(firstRegisterIdDislayedOnUIDescending + " was dislayed in descending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptAmountField.click();
+		// Get all the Amount elements as it was in descending order by default
 		List<WebElement> amountElementsDisplayedOnUI = getTaxExemptSalesPage(
 				driver).getListOfAmountElements();
-		System.out.println(amountElementsDisplayedOnUI.size());
 		for (int count = 0; count < amountElementsDisplayedOnUI.size() - 2; count++) {
-
 			float firstAmountDisplayedOnUI = Float
 					.parseFloat(amountElementsDisplayedOnUI.get(count)
 							.getText().replace("$", ""));
@@ -944,12 +938,12 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstAmountDisplayedOnUI <= secondAmountDisplayedOnUI,
 					"Amount is not displayed on Ascending Order");
+			Reporter.log(firstAmountDisplayedOnUI + " was dislayed in ascending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptAmountField.click();
+		// Get all the Amount elements as it was in descending order by default
 		List<WebElement> amountDisplayedOnUIDescending = getTaxExemptSalesPage(
 				driver).getListOfAmountElements();
-		// work aroud
-		System.out.println(amountDisplayedOnUIDescending.size());
 		for (int count = 0; count < amountDisplayedOnUIDescending.size() - 2; count++) {
 			float firstAmountDisplayedOnUIDescendingOrder = Float
 					.parseFloat(amountDisplayedOnUIDescending.get(count)
@@ -960,11 +954,12 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstAmountDisplayedOnUIDescendingOrder >= secondAmountDisplayedOnUIDescendingOrder,
 					"Amount is not displayed on Descending Order");
+			Reporter.log(firstAmountDisplayedOnUIDescendingOrder + " was dislayed in descending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptUserField.click();
+		// Get all the User elements as it was in descending order by default
 		List<WebElement> userDisplayedOnUIAscending = getTaxExemptSalesPage(
 				driver).getListOfUserID();
-		System.out.println(userDisplayedOnUIAscending.size());
 		for (int count = 0; count < userDisplayedOnUIAscending.size() - 1; count++) {
 			int firstUserDisplayedOnUIAscending = Integer
 					.parseInt(userDisplayedOnUIAscending.get(count).getText()
@@ -975,11 +970,12 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstUserDisplayedOnUIAscending <= secondUserDisplayedOnUIAscending,
 					"User id is not displayed in Ascending Order");
+			Reporter.log(firstUserDisplayedOnUIAscending + " was dislayed in ascending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptUserField.click();
+		// Get all the User elements as it was in descending order by default
 		List<WebElement> userIdDisplayedOnUIDescending = getTaxExemptSalesPage(
 				driver).getListOfUserID();
-		System.out.println(userIdDisplayedOnUIDescending.size());
 		for (int count = 0; count < userDisplayedOnUIAscending.size() - 1; count++) {
 			int firstUserIdDisplayedOnUIDescending = Integer
 					.parseInt(userIdDisplayedOnUIDescending.get(count)
@@ -990,14 +986,152 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstUserIdDisplayedOnUIDescending >= secondUserIdDisplayedOnUIDescending,
 					"User Id is not displayed Descending Order");
+			Reporter.log(firstUserIdDisplayedOnUIDescending + " was dislayed in descending order<br>");
+		}
+		getTaxExemptSalesPage(driver).taxExemptOrganizationField.click();
+		// Get all the OrganizationName elements as it was in descending order by default
+		List<WebElement> organizationNameDisplayedOnUIAscending = getTaxExemptSalesPage(
+				driver).getListOfOrganizationName();
+		for (int count = 0; count < organizationNameDisplayedOnUIAscending
+				.size() - 1; count++) {
+			String firstOrganizationNameDisplayedOnUIAscending = organizationNameDisplayedOnUIAscending
+					.get(count).getText().trim();
+			String secondOrganizationNameDisplayedOnUIAscending = organizationNameDisplayedOnUIAscending
+					.get(count + 1).getText().trim();
+			if (!(firstOrganizationNameDisplayedOnUIAscending.isEmpty() || firstOrganizationNameDisplayedOnUIAscending
+					.contains("Invalid"))) {
+				if (!(secondOrganizationNameDisplayedOnUIAscending.isEmpty() || firstOrganizationNameDisplayedOnUIAscending
+						.contains("Invalid"))) {
+					Assert.assertTrue(
+							firstOrganizationNameDisplayedOnUIAscending
+									.compareToIgnoreCase(secondOrganizationNameDisplayedOnUIAscending) <= 0,
+							"Organization name is not displayed in Ascending Order");
+					Reporter.log(firstOrganizationNameDisplayedOnUIAscending + " was dislayed in ascending order<br>");
+				}
+
+			}
+		}
+		getTaxExemptSalesPage(driver).taxExemptOrganizationField.click();
+		// Get all the User OrganizationName as it was in descending order by default
+		List<WebElement> organizationNameDisplayedOnUIDescending = getTaxExemptSalesPage(
+				driver).getListOfOrganizationName();
+		for (int count = 0; count < organizationNameDisplayedOnUIDescending
+				.size() - 1; count++) {
+			String firstOrganizationNameDisplayedOnUIDescending = organizationNameDisplayedOnUIDescending
+					.get(count).getText().trim();
+			String secondOrganizationNameDisplayedOnUIDescending = organizationNameDisplayedOnUIDescending
+					.get(count + 1).getText().trim();
+			if (!(firstOrganizationNameDisplayedOnUIDescending.isEmpty() || firstOrganizationNameDisplayedOnUIDescending
+					.contains("Invalid"))) {
+				if (!(secondOrganizationNameDisplayedOnUIDescending.isEmpty() || secondOrganizationNameDisplayedOnUIDescending
+						.contains("Invalid"))) {
+					Assert.assertTrue(
+							firstOrganizationNameDisplayedOnUIDescending
+									.compareToIgnoreCase(secondOrganizationNameDisplayedOnUIDescending) >= 0,
+							"Organization Name is not displayed in Descending Order");
+					Reporter.log(firstOrganizationNameDisplayedOnUIDescending + " was dislayed in descending order<br>");
+				}
+			}
+		}
+		// Click on Tax ID Number field to sort in ascending order
+		getTaxExemptSalesPage(driver).taxIDNumberField.click();
+		// Get all the TaxId Numbers elements as it was in descending order by default
+		List<WebElement> taxIDNumberDisplayedOnUIAscendingOrder = getTaxExemptSalesPage(
+				driver).getListOfTaxIdNumber();
+		for (int count = 0; count < taxIDNumberDisplayedOnUIAscendingOrder
+				.size() - 1; count++) {
+			String firsttaxIDNumberDisplayedOnUIAscendingOrder = taxIDNumberDisplayedOnUIAscendingOrder
+					.get(count).getText().trim();
+			String secondtaxIDNumberDisplayedOnUIAscendingOrder = taxIDNumberDisplayedOnUIAscendingOrder
+					.get(count + 1).getText().trim();
+			if (!(firsttaxIDNumberDisplayedOnUIAscendingOrder.isEmpty() || firsttaxIDNumberDisplayedOnUIAscendingOrder
+					.contains("Invalid"))) {
+				if (!(secondtaxIDNumberDisplayedOnUIAscendingOrder.isEmpty() || secondtaxIDNumberDisplayedOnUIAscendingOrder
+						.contains("Invalid"))) {
+					Assert.assertTrue(
+							firsttaxIDNumberDisplayedOnUIAscendingOrder
+									.compareToIgnoreCase(secondtaxIDNumberDisplayedOnUIAscendingOrder) <= 0,
+							"Tax ID Number is not displayed in Ascending Order");
+					Reporter.log(firsttaxIDNumberDisplayedOnUIAscendingOrder + " was dislayed in ascending order<br>");
+				}
+
+			}
+		}
+		// Click on Tax ID Number field to sort in descending order
+		getTaxExemptSalesPage(driver).taxIDNumberField.click();
+		// Get all the TaxId Numbers elements as it was in descending order by default
+		List<WebElement> taxIDNumberDisplayedOnUIDescendingOrder = getTaxExemptSalesPage(
+				driver).getListOfTaxIdNumber();
+		for (int count = 0; count < taxIDNumberDisplayedOnUIDescendingOrder
+				.size() - 1; count++) {
+			String firsttaxIDNumberDisplayedOnUIDescendingOrder = taxIDNumberDisplayedOnUIDescendingOrder
+					.get(count).getText().trim();
+			String secondtaxIDNumberDisplayedOnUIDescendingOrder = taxIDNumberDisplayedOnUIDescendingOrder
+					.get(count + 1).getText().trim();
+			if (!(firsttaxIDNumberDisplayedOnUIDescendingOrder.isEmpty() || firsttaxIDNumberDisplayedOnUIDescendingOrder
+					.contains("Invalid"))) {
+				if (!(secondtaxIDNumberDisplayedOnUIDescendingOrder.isEmpty() || secondtaxIDNumberDisplayedOnUIDescendingOrder
+						.contains("Invalid"))) {
+					Assert.assertTrue(
+							firsttaxIDNumberDisplayedOnUIDescendingOrder
+									.compareToIgnoreCase(secondtaxIDNumberDisplayedOnUIDescendingOrder) >= 0,
+							"Tax ID Number is not displayed in Descending Order");
+					Reporter.log(firsttaxIDNumberDisplayedOnUIDescendingOrder + " was dislayed in descending order<br>");
+				}
+
+			}
+		}
+		// Click on Deposit Status field to sort in ascending order
+		getTaxExemptSalesPage(driver).depositStatus.click();
+		// Get all the Deposit Status elements as it was in descending order by default
+		List<WebElement> depositStatusDisplayedOnUIAscendingOrder = getTaxExemptSalesPage(
+				driver).getListOfDepositStatus();
+		for (int count = 0; count < depositStatusDisplayedOnUIAscendingOrder
+				.size() - 1; count++) {
+			String firstDepositStatusDisplayedOnUIAscendingOrder = depositStatusDisplayedOnUIAscendingOrder
+					.get(count).getText().trim();
+			String secondDepositStatusDisplayedOnUIAscendingOrder = depositStatusDisplayedOnUIAscendingOrder
+					.get(count + 1).getText().trim();
+			if (!(firstDepositStatusDisplayedOnUIAscendingOrder.isEmpty() || firstDepositStatusDisplayedOnUIAscendingOrder
+					.contains("Invalid"))) {
+				if (!(secondDepositStatusDisplayedOnUIAscendingOrder.isEmpty() || secondDepositStatusDisplayedOnUIAscendingOrder
+						.contains("Invalid"))) {
+					Assert.assertTrue(
+							firstDepositStatusDisplayedOnUIAscendingOrder
+									.compareToIgnoreCase(secondDepositStatusDisplayedOnUIAscendingOrder) <= 0,
+							"Deposit Status is not displayed in Ascending Order");
+					Reporter.log(firstDepositStatusDisplayedOnUIAscendingOrder + " was dislayed in ascending order<br>");
+				}
+
+			}
+		}
+		// Click on Deposit Status field to sort in descending order
+		getTaxExemptSalesPage(driver).depositStatus.click();
+		// Get all the Deposit Status elements as it was in descending order by default
+		List<WebElement> depositStatusDisplayedOnUIDescendingOrder = getTaxExemptSalesPage(
+				driver).getListOfDepositStatus();
+		for (int count = 0; count < depositStatusDisplayedOnUIDescendingOrder
+				.size() - 1; count++) {
+			String firstDepositStatusDisplayedOnUIDescendingOrder = depositStatusDisplayedOnUIDescendingOrder
+					.get(count).getText().trim();
+			String secondDepositStatusDisplayedOnUIDescendingOrder = depositStatusDisplayedOnUIDescendingOrder
+					.get(count + 1).getText().trim();
+			if (!(firstDepositStatusDisplayedOnUIDescendingOrder.isEmpty() || firstDepositStatusDisplayedOnUIDescendingOrder
+					.contains("Invalid"))) {
+				if (!(secondDepositStatusDisplayedOnUIDescendingOrder.isEmpty() || secondDepositStatusDisplayedOnUIDescendingOrder
+						.contains("Invalid"))) {
+					Assert.assertTrue(
+							firstDepositStatusDisplayedOnUIDescendingOrder
+									.compareToIgnoreCase(secondDepositStatusDisplayedOnUIDescendingOrder) >= 0,
+							"Deposit Status is not displayed in Descending Order");
+					Reporter.log(firstDepositStatusDisplayedOnUIDescendingOrder + " was dislayed in descending order<br>");
+				}
+
+			}
 		}
 	}
 
-	/*
-	 * getTaxExemptSalesPage(driver).taxExemptAmountField.click();
-	 * List<WebElement>
-	 */
-
+	
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();

@@ -7,15 +7,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Proxy.ProxyType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,9 +28,9 @@ public abstract class Common {
 	public WebDriver driver;
 	public WebDriverWait wait;
 	public Actions action;
-    public DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-    public DecimalFormat decimalFormat=new DecimalFormat();
-    
+	public DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+	public DecimalFormat decimalFormat = new DecimalFormat();
+
 	public Common(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 50);
@@ -163,10 +163,12 @@ public abstract class Common {
 		System.out.println(Common.verifyDateWithInRange("12/17/2015",
 				"03/17/2016", "12/18/2015"));
 	}
-public static boolean compareDate(){
-	return false;
-	
-}
+
+	public static boolean compareDate() {
+		return false;
+
+	}
+
 	public int getMonthIndex(String month) {
 		int monthIndex = 0;
 		switch (month.toUpperCase()) {
@@ -211,4 +213,26 @@ public static boolean compareDate(){
 		}
 		return monthIndex;
 	}
+
+	public int generateRandomNumber() {
+		Random randomGenerator = new Random();
+		return randomGenerator.nextInt(10000);
+	}
+	
+	public boolean retryingFindClick(By by) {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                driver.findElement(by).click();
+                result = true;
+                break;
+            } catch(StaleElementReferenceException e) {
+            	Reporter.log("Element not found on the attempt : " + attempts);
+            }
+            Reporter.log("Element found on the attempt : " + attempts);
+            attempts++;
+        }
+        return result;
+}
 }

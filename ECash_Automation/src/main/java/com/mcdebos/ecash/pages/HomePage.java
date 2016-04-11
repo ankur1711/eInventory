@@ -24,7 +24,6 @@ public class HomePage extends Common {
 	WebElement eProfitablityLink;
 
 	// Inventory Options Drop Down
-	//Test Coomit Ankur
 	@FindBy(xpath = "//a[contains(@class,'dropdown') and contains(text(),'Inventory')]")
 	WebElement inventoryDropDown;
 
@@ -177,6 +176,7 @@ public class HomePage extends Common {
 		Reporter.log("Click on " + optionName + " Icon<br>");
 		wait.until(ExpectedConditions
 				.elementToBeClickable(otherCashFunctionOptionLink(optionName)));
+		sleep(500);
 		otherCashFunctionOptionLink(optionName).click();
 		Reporter.log(optionName + " Link Clicked<br>");
 	}

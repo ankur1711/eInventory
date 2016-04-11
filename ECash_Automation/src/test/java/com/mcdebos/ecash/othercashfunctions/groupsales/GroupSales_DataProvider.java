@@ -10,9 +10,5 @@ public class GroupSales_DataProvider {
 		GroupSalesData groupsalesdata = new GroupSalesData("TC_1298");
 		return new Object[][] {{groupsalesdata}};
 	}
-	
-	//    change Test Jansi Commit
-	// Test Test
-	
 
 }
