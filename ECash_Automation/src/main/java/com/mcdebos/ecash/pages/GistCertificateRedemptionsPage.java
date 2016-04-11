@@ -50,10 +50,6 @@ public class GiftCertificateRedemptionsPage extends Common{
 	@FindBy(xpath = "//table[@id='ticketTable']//th[text()='All']")
 	public WebElement allButton;
 	
-	@FindBy(xpath = "//table[@id='ticketTable']//th[text()='All']")
-	public WebElement allButton1;
-	// comments addded
-	
 	
 
 }
