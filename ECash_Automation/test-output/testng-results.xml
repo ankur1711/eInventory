@@ -1,166 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="1" failed="0" total="1" passed="0">
   <reporter-output>
-    <line>
-      <![CDATA[Click on User Drop Down<br>]]>
-    </line>
-    <line>
-      <![CDATA[Select the User as e100001<br>]]>
-    </line>
-    <line>
-      <![CDATA[Click on Store Dropdown<br>]]>
-    </line>
-    <line>
-      <![CDATA[Select the Store as 1532<br>]]>
-    </line>
-    <line>
-      <![CDATA[Click on Menu Icon<br>]]>
-    </line>
-    <line>
-      <![CDATA[Wait until Cash Management Option is enabled<br>]]>
-    </line>
-    <line>
-      <![CDATA[Click on Cash Management Option<br>]]>
-    </line>
-    <line>
-      <![CDATA[Click on Other Cash Functions Menu<br>]]>
-    </line>
-    <line>
-      <![CDATA[Other Cash Functions Menu opened<br>]]>
-    </line>
-    <line>
-      <![CDATA[Click on Group Sales Icon<br>]]>
-    </line>
-    <line>
-      <![CDATA[Group Sales Link Clicked<br>]]>
-    </line>
-    <line>
-      <![CDATA[Tax Exempt Sales Tab Clicked and Opened<br>]]>
-    </line>
-    <line>
-      <![CDATA[03/08/2016 was equal to or after 03/03/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[03/03/2016 was equal to or after 03/01/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[03/01/2016 was equal to or after 02/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/29/2016 was equal to or after 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or after 02/25/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/25/2016 was equal to or after 02/18/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/18/2016 was equal to or after 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or after 02/04/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/04/2016 was equal to or after 01/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[01/29/2016 was equal to or after 01/25/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[01/25/2016 was equal to or after 01/15/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[Click on the Ascending Button for Date & Time <br>]]>
-    </line>
-    <line>
-      <![CDATA[01/15/2016 was equal to or before 01/25/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[01/25/2016 was equal to or before 01/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[01/29/2016 was equal to or before 02/04/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/04/2016 was equal to or before 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/09/2016 was equal to or before 02/18/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/18/2016 was equal to or before 02/25/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/25/2016 was equal to or before 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/26/2016 was equal to or before 02/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[02/29/2016 was equal to or before 03/01/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[03/01/2016 was equal to or before 03/03/2016<br>]]>
-    </line>
-    <line>
-      <![CDATA[03/03/2016 was equal to or before 03/08/2016<br>]]>
-    </line>
   </reporter-output>
-  <suite name="Regression Test Suite" duration-ms="88332" started-at="2016-04-08T06:56:48Z" finished-at="2016-04-08T06:58:17Z">
+  <suite name="Regression Test Suite" duration-ms="54899" started-at="2016-04-08T15:34:45Z" finished-at="2016-04-08T15:35:40Z">
     <groups>
     </groups>
-    <test name="Drawer Countdown  - US 84" duration-ms="88332" started-at="2016-04-08T06:56:48Z" finished-at="2016-04-08T06:58:17Z">
+    <test name="Drawer Countdown  - US 84" duration-ms="54899" started-at="2016-04-08T15:34:45Z" finished-at="2016-04-08T15:35:40Z">
       <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@25790e]" name="setUp" is-config="true" duration-ms="45460" started-at="2016-04-08T12:26:49Z" finished-at="2016-04-08T12:27:34Z">
+        <test-method status="FAIL" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@2d3fcdbd]" name="setUp" is-config="true" duration-ms="0" started-at="2016-04-08T10:34:46Z" finished-at="2016-04-08T10:34:46Z">
           <params>
             <param index="0">
               <value>
@@ -173,174 +20,236 @@
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[Failed to connect to binary FirefoxBinary(C:\Program Files (x86)\Mozilla Firefox\firefox.exe) on port 7055; process output follows: 
+7}}}
+1460129693923	addons.xpi	DEBUG	Existing add-on fxdriver@googlecode.com in app-profile
+1460129693924	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
+1460129693924	addons.xpi	DEBUG	Existing add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} in app-global
+1460129693925	addons.xpi	DEBUG	Existing add-on meetinglauncher@iconf.net in winreg-app-global
+1460129693925	addons.xpi	DEBUG	Existing add-on {D19CA586-DD6C-4a0a-96F8-14644F340D60} in winreg-app-global
+1460129693925	addons.xpi	DEBUG	getInstallState changed: false, state: {"app-profile":{"fxdriver@googlecode.com":{"d":"C:\\Users\\mc29012\\AppData\\Local\\Temp\\anonymous1654913619038412835webdriver-profile\\extensions\\fxdriver@googlecode.com","e":false,"v":"2.43.1","st":1460129689921,"mt":1460129689748}},"app-global":{"{972ce4c6-7e08-4474-a285-3208198ce6fd}":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}","e":true,"v":"43.0.1","st":1460059454754,"mt":1460059454491}},"winreg-app-global":{"meetinglauncher@iconf.net":{"d":"C:\\Program Files (x86)\\Meeting Center\\Modules\\Firefox","e":false,"v":"4.11.7.288","st":1418334926026,"mt":1386361972000},"{D19CA586-DD6C-4a0a-96F8-14644F340D60}":{"d":"C:\\Program Files (x86)\\Common Files\\McAfee\\SystemCore","e":false,"v":"15.4.0","st":1449504134335,"mt":1442842022497}}}
+1460129693927	addons.xpi	DEBUG	No changes found
+1460129693934	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1460129693935	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1460129693935	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Starting provider: GMPProvider
+1460129693941	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1460129693941	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1460129693941	addons.manager	DEBUG	Starting provider: PluginProvider
+1460129693941	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1460129693942	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1460129693942	addons.manager	DEBUG	Completed startup sequence
+1460129694030	addons.xpi-utils	DEBUG	Starting async load of XPI database C:\Users\mc29012\AppData\Local\Temp\anonymous1654913619038412835webdriver-profile\extensions.json
+*** Blocklist::_loadBlocklistFromFile: blocklist is disabled
+1460129694210	addons.manager	DEBUG	Starting provider: <unnamed-provider>
+1460129694210	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
+1460129694210	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
+1460129694332	addons.xpi-utils	DEBUG	Async JSON file read took 0 MS
+1460129694332	addons.xpi-utils	DEBUG	Finished async read of XPI database, parsing...
+1460129694333	addons.xpi-utils	DEBUG	Successfully read XPI database
+1460129694406	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1460129694406	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1460129694406	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1460129717467	addons.manager	DEBUG	shutdown
+1460129717468	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1460129717468	addons.xpi	DEBUG	shutdown
+1460129717468	addons.xpi-utils	DEBUG	shutdown
+1460129717469	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1460129717469	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1460129717471	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1460129717471	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1460129717472	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1460129717475	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1460129717479	addons.manager	DEBUG	Async provider shutdown done
+
+Build info: version: '2.43.1', revision: '5163bce', time: '2014-09-10 16:27:33'
+System info: host: 'LAP-R9LDYD3', ip: '152.140.154.146', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: driver.version: FirefoxDriver]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: Failed to connect to binary FirefoxBinary(C:\Program Files (x86)\Mozilla Firefox\firefox.exe) on port 7055; process output follows: 
+7}}}
+1460129693923	addons.xpi	DEBUG	Existing add-on fxdriver@googlecode.com in app-profile
+1460129693924	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
+1460129693924	addons.xpi	DEBUG	Existing add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} in app-global
+1460129693925	addons.xpi	DEBUG	Existing add-on meetinglauncher@iconf.net in winreg-app-global
+1460129693925	addons.xpi	DEBUG	Existing add-on {D19CA586-DD6C-4a0a-96F8-14644F340D60} in winreg-app-global
+1460129693925	addons.xpi	DEBUG	getInstallState changed: false, state: {"app-profile":{"fxdriver@googlecode.com":{"d":"C:\\Users\\mc29012\\AppData\\Local\\Temp\\anonymous1654913619038412835webdriver-profile\\extensions\\fxdriver@googlecode.com","e":false,"v":"2.43.1","st":1460129689921,"mt":1460129689748}},"app-global":{"{972ce4c6-7e08-4474-a285-3208198ce6fd}":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}","e":true,"v":"43.0.1","st":1460059454754,"mt":1460059454491}},"winreg-app-global":{"meetinglauncher@iconf.net":{"d":"C:\\Program Files (x86)\\Meeting Center\\Modules\\Firefox","e":false,"v":"4.11.7.288","st":1418334926026,"mt":1386361972000},"{D19CA586-DD6C-4a0a-96F8-14644F340D60}":{"d":"C:\\Program Files (x86)\\Common Files\\McAfee\\SystemCore","e":false,"v":"15.4.0","st":1449504134335,"mt":1442842022497}}}
+1460129693927	addons.xpi	DEBUG	No changes found
+1460129693934	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1460129693935	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1460129693935	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Starting provider: GMPProvider
+1460129693941	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1460129693941	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1460129693941	addons.manager	DEBUG	Starting provider: PluginProvider
+1460129693941	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1460129693942	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1460129693942	addons.manager	DEBUG	Completed startup sequence
+1460129694030	addons.xpi-utils	DEBUG	Starting async load of XPI database C:\Users\mc29012\AppData\Local\Temp\anonymous1654913619038412835webdriver-profile\extensions.json
+*** Blocklist::_loadBlocklistFromFile: blocklist is disabled
+1460129694210	addons.manager	DEBUG	Starting provider: <unnamed-provider>
+1460129694210	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
+1460129694210	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
+1460129694332	addons.xpi-utils	DEBUG	Async JSON file read took 0 MS
+1460129694332	addons.xpi-utils	DEBUG	Finished async read of XPI database, parsing...
+1460129694333	addons.xpi-utils	DEBUG	Successfully read XPI database
+1460129694406	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1460129694406	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1460129694406	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1460129717467	addons.manager	DEBUG	shutdown
+1460129717468	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1460129717468	addons.xpi	DEBUG	shutdown
+1460129717468	addons.xpi-utils	DEBUG	shutdown
+1460129717469	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1460129717469	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1460129717471	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1460129717471	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1460129717472	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1460129717475	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1460129717479	addons.manager	DEBUG	Async provider shutdown done
+
+Build info: version: '2.43.1', revision: '5163bce', time: '2014-09-10 16:27:33'
+System info: host: 'LAP-R9LDYD3', ip: '152.140.154.146', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: driver.version: FirefoxDriver
+	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.start(NewProfileExtensionConnection.java:130)
+	at org.openqa.selenium.firefox.FirefoxDriver.startClient(FirefoxDriver.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:114)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:193)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:186)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:182)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:95)
+	at com.mcdebos.ecash.pages.Common.getWebDriver(Common.java:56)
+	at com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales.setUp(TestTaxExemptSales.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:653)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.firefox.NotConnectedException: Unable to connect to host 127.0.0.1 on port 7055 after 45000 ms. Firefox console output:
+7}}}
+1460129693923	addons.xpi	DEBUG	Existing add-on fxdriver@googlecode.com in app-profile
+1460129693924	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
+1460129693924	addons.xpi	DEBUG	Existing add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} in app-global
+1460129693925	addons.xpi	DEBUG	Existing add-on meetinglauncher@iconf.net in winreg-app-global
+1460129693925	addons.xpi	DEBUG	Existing add-on {D19CA586-DD6C-4a0a-96F8-14644F340D60} in winreg-app-global
+1460129693925	addons.xpi	DEBUG	getInstallState changed: false, state: {"app-profile":{"fxdriver@googlecode.com":{"d":"C:\\Users\\mc29012\\AppData\\Local\\Temp\\anonymous1654913619038412835webdriver-profile\\extensions\\fxdriver@googlecode.com","e":false,"v":"2.43.1","st":1460129689921,"mt":1460129689748}},"app-global":{"{972ce4c6-7e08-4474-a285-3208198ce6fd}":{"d":"C:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}","e":true,"v":"43.0.1","st":1460059454754,"mt":1460059454491}},"winreg-app-global":{"meetinglauncher@iconf.net":{"d":"C:\\Program Files (x86)\\Meeting Center\\Modules\\Firefox","e":false,"v":"4.11.7.288","st":1418334926026,"mt":1386361972000},"{D19CA586-DD6C-4a0a-96F8-14644F340D60}":{"d":"C:\\Program Files (x86)\\Common Files\\McAfee\\SystemCore","e":false,"v":"15.4.0","st":1449504134335,"mt":1442842022497}}}
+1460129693927	addons.xpi	DEBUG	No changes found
+1460129693934	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1460129693935	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1460129693935	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1460129693935	addons.manager	DEBUG	Starting provider: GMPProvider
+1460129693941	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1460129693941	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1460129693941	addons.manager	DEBUG	Starting provider: PluginProvider
+1460129693941	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1460129693942	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1460129693942	addons.manager	DEBUG	Completed startup sequence
+1460129694030	addons.xpi-utils	DEBUG	Starting async load of XPI database C:\Users\mc29012\AppData\Local\Temp\anonymous1654913619038412835webdriver-profile\extensions.json
+*** Blocklist::_loadBlocklistFromFile: blocklist is disabled
+1460129694210	addons.manager	DEBUG	Starting provider: <unnamed-provider>
+1460129694210	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
+1460129694210	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
+1460129694332	addons.xpi-utils	DEBUG	Async JSON file read took 0 MS
+1460129694332	addons.xpi-utils	DEBUG	Finished async read of XPI database, parsing...
+1460129694333	addons.xpi-utils	DEBUG	Successfully read XPI database
+1460129694406	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1460129694406	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1460129694406	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1460129717467	addons.manager	DEBUG	shutdown
+1460129717468	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1460129717468	addons.xpi	DEBUG	shutdown
+1460129717468	addons.xpi-utils	DEBUG	shutdown
+1460129717469	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1460129717469	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1460129717471	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1460129717471	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1460129717472	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1460129717475	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1460129717479	addons.manager	DEBUG	Async provider shutdown done
+
+	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.start(NewProfileExtensionConnection.java:118)
+	... 34 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage(com.mcdebos.ecash.excelutils.GroupSalesData)[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@25790e]" name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" duration-ms="40978" started-at="2016-04-08T12:27:34Z" description="Verifying user is able to Sort(Ascending/Descending Order) by Tax Exempt Sales entries on cloud app." data-provider="TC_1298" finished-at="2016-04-08T12:28:15Z">
+        <test-method status="SKIP" signature="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage(com.mcdebos.ecash.excelutils.GroupSalesData)[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@2d3fcdbd]" name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" duration-ms="0" started-at="2016-04-08T10:35:39Z" description="Verifying user is able to Sort(Ascending/Descending Order) by Tax Exempt Sales entries on cloud app." data-provider="TC_1298" finished-at="2016-04-08T10:35:39Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.mcdebos.ecash.excelutils.GroupSalesData@16f416f]]>
+                <![CDATA[com.mcdebos.ecash.excelutils.GroupSalesData@4c60d6e9]]>
               </value>
             </param>
           </params>
           <reporter-output>
-            <line>
-              <![CDATA[Click on User Drop Down<br>]]>
-            </line>
-            <line>
-              <![CDATA[Select the User as e100001<br>]]>
-            </line>
-            <line>
-              <![CDATA[Click on Store Dropdown<br>]]>
-            </line>
-            <line>
-              <![CDATA[Select the Store as 1532<br>]]>
-            </line>
-            <line>
-              <![CDATA[Click on Menu Icon<br>]]>
-            </line>
-            <line>
-              <![CDATA[Wait until Cash Management Option is enabled<br>]]>
-            </line>
-            <line>
-              <![CDATA[Click on Cash Management Option<br>]]>
-            </line>
-            <line>
-              <![CDATA[Click on Other Cash Functions Menu<br>]]>
-            </line>
-            <line>
-              <![CDATA[Other Cash Functions Menu opened<br>]]>
-            </line>
-            <line>
-              <![CDATA[Click on Group Sales Icon<br>]]>
-            </line>
-            <line>
-              <![CDATA[Group Sales Link Clicked<br>]]>
-            </line>
-            <line>
-              <![CDATA[Tax Exempt Sales Tab Clicked and Opened<br>]]>
-            </line>
-            <line>
-              <![CDATA[03/08/2016 was equal to or after 03/03/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[03/03/2016 was equal to or after 03/01/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[03/01/2016 was equal to or after 02/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/29/2016 was equal to or after 02/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/29/2016 was equal to or after 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or after 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or after 02/25/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/25/2016 was equal to or after 02/18/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/18/2016 was equal to or after 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or after 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or after 02/04/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/04/2016 was equal to or after 01/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[01/29/2016 was equal to or after 01/25/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[01/25/2016 was equal to or after 01/15/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[Click on the Ascending Button for Date & Time <br>]]>
-            </line>
-            <line>
-              <![CDATA[01/15/2016 was equal to or before 01/25/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[01/25/2016 was equal to or before 01/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[01/29/2016 was equal to or before 02/04/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/04/2016 was equal to or before 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or before 02/09/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/09/2016 was equal to or before 02/18/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/18/2016 was equal to or before 02/25/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/25/2016 was equal to or before 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or before 02/26/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/26/2016 was equal to or before 02/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/29/2016 was equal to or before 02/29/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[02/29/2016 was equal to or before 03/01/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[03/01/2016 was equal to or before 03/03/2016<br>]]>
-            </line>
-            <line>
-              <![CDATA[03/03/2016 was equal to or before 03/08/2016<br>]]>
-            </line>
           </reporter-output>
         </test-method> <!-- sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@25790e]" name="tearDown" is-config="true" duration-ms="1438" started-at="2016-04-08T12:28:15Z" finished-at="2016-04-08T12:28:17Z">
+        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales@2d3fcdbd]" name="tearDown" is-config="true" duration-ms="0" started-at="2016-04-08T10:35:40Z" finished-at="2016-04-08T10:35:40Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales.tearDown(TestTaxExemptSales.java:1003)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:786)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

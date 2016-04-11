@@ -12,7 +12,7 @@
     <classes>
       <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
         <methods>
-          <include name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" invocation-numbers="0"/>
+          <include name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

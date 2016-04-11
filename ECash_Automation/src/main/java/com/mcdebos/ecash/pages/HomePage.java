@@ -24,6 +24,7 @@ public class HomePage extends Common {
 	WebElement eProfitablityLink;
 
 	// Inventory Options Drop Down
+	//Test Coomit Ankur
 	@FindBy(xpath = "//a[contains(@class,'dropdown') and contains(text(),'Inventory')]")
 	WebElement inventoryDropDown;
 
