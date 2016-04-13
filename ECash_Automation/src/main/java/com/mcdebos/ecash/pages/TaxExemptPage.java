@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -144,7 +145,7 @@ public class TaxExemptPage extends Common {
 		Select dateRangeDropDown = new Select(driver.findElement(By
 				.id("tax_exempt_sales_date_range")));
 		dateRangeDropDown.selectByVisibleText(dateRange);
-		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
+//		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
 		Reporter.log("Select Date Range as '" + dateRange
 				+ "' from the drop down<br>");
 	}
@@ -530,8 +531,9 @@ public class TaxExemptPage extends Common {
 				.findElement(By
 						.xpath("(//table[@id='tax_exempt_table']//button[@value='Edit'])["
 								+ count + "]"));
-//		retryingFindClick(By.xpath("(//table[@id='tax_exempt_table']//button[@value='Edit'])["+ count + "]"));
-		action.moveToElement(editButton).click().perform();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].scrollIntoView();", editButton);
+		jse.executeScript("arguments[0].click();", editButton);
 		Reporter.log("Click on " + count + " Edit Button");
 	}
 	

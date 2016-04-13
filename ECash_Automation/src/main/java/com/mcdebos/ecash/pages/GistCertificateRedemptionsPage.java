@@ -17,9 +17,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
 
-public class GiftCertificateRedemptionsPage extends Common{
+public class GistCertificateRedemptionsPage extends Common{
 	
-	public GiftCertificateRedemptionsPage(WebDriver driver){
+	public GistCertificateRedemptionsPage(WebDriver driver){
 		
 		super(driver);
 		PageFactory.initElements(driver, this);

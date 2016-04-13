@@ -565,13 +565,7 @@ public class TestTaxExemptSales extends PageObjects {
 				.findElements(By
 						.xpath("//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"));
 		for (int count = 0; count < editButtonElemens.size(); count++) {
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")));
-
-			driver.findElement(
-					By.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")).click();
+			getTaxExemptSalesPage(driver).clickOnEditButton(count + 1);
 			Reporter.log("OPen the " + (count + 1)
 					+ " entry in Tax Exempt Sales<br>");
 
@@ -627,23 +621,23 @@ public class TestTaxExemptSales extends PageObjects {
 		List<WebElement> editButtonElemens = driver
 				.findElements(By
 						.xpath("//table[@id='tax_exempt_table']//button[@value='Edit']"));
-//		for(WebElement editButton : editButtonElemens) {
-//			getTaxExemptSalesPage(driver).clickOnEditButton(editButton);
-//		}
 		for (int count = 0; count < editButtonElemens.size(); count++) {
 			getTaxExemptSalesPage(driver).clickOnEditButton(count + 1);
 			Reporter.log("OPen the " + (count + 1)
 					+ " entry in Tax Exempt Sales<br>");
 			getTaxExemptSalesPage(driver).organizationTextBox().click();
+			// Enter Organization Name
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
 							.xpath("//input[@id='tax_exempt_organization_input']")))
 					.clear();
 			getTaxExemptSalesPage(driver).organizationTextBox().sendKeys(
-					"Test Org Name_" + Integer.toString(generateRandomNumber()));
+					"Test Organization" + Integer.toString(count));
+			
 			getTaxExemptSalesPage(driver).taxIdNumberTextBox().click();
 			getTaxExemptSalesPage(driver).taxIdNumberTextBox().clear();
-			getTaxExemptSalesPage(driver).taxIdNumberTextBox().sendKeys(Integer.toString(generateRandomNumber()));			
+			getTaxExemptSalesPage(driver).taxIdNumberTextBox().sendKeys("TID" + Integer.toString(generateRandomNumber()));			
+			
 			getTaxExemptSalesPage(driver).contactNameTextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
@@ -652,6 +646,7 @@ public class TestTaxExemptSales extends PageObjects {
 					.contactNameTextBox()
 					.sendKeys(
 							"Test Contact Name_" + Integer.toString(generateRandomNumber()));
+			
 			getTaxExemptSalesPage(driver).addressLine1TextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
@@ -661,12 +656,14 @@ public class TestTaxExemptSales extends PageObjects {
 					.addressLine1TextBox()
 					.sendKeys(
 							"Test Address 1_" + Integer.toString(generateRandomNumber()));
+			
 			getTaxExemptSalesPage(driver).addressLine2TextBox().click();
 			getTaxExemptSalesPage(driver).addressLine2TextBox().clear();
 			getTaxExemptSalesPage(driver)
 					.addressLine2TextBox()
 					.sendKeys(
 							"Test Address 2_" + Integer.toString(generateRandomNumber()));
+			
 			getTaxExemptSalesPage(driver).cityTextBox().click();
 			getTaxExemptSalesPage(driver).cityTextBox().clear();
 			getTaxExemptSalesPage(driver).cityTextBox().sendKeys(
@@ -691,13 +688,20 @@ public class TestTaxExemptSales extends PageObjects {
 			 * "Zip Code error message is dispaled When entering only 5 digits numeric values"
 			 * );
 			 */
+			// Select State
 			getTaxExemptSalesPage(driver).selectState(1);
+			// Enter Email Address
+			getTaxExemptSalesPage(driver).emailTextBox().click();
+			getTaxExemptSalesPage(driver).emailTextBox().clear();
 			getTaxExemptSalesPage(driver).emailTextBox().sendKeys(
-					"TestEmailAddr__" + Integer.toString(generateRandomNumber()) + "@mcd.com");
+					"TestEmailAddr_" + Integer.toString(generateRandomNumber()) + "@mcd.com");
+			// Enter Phone Number
+			getTaxExemptSalesPage(driver).phoneNumberTextBox().click();
+			getTaxExemptSalesPage(driver).phoneNumberTextBox().clear();
 			getTaxExemptSalesPage(driver).phoneNumberTextBox().sendKeys(Integer.toString(generateRandomNumber()));
+			
 			getTaxExemptSalesPage(driver).submitTaxExemptSalesModularWindow()
 					.click();
-//			getTaxExemptSalesPage(driver).movetToTopScreen();
 		}
 
 	}
