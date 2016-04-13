@@ -145,7 +145,7 @@ public class TaxExemptPage extends Common {
 		Select dateRangeDropDown = new Select(driver.findElement(By
 				.id("tax_exempt_sales_date_range")));
 		dateRangeDropDown.selectByVisibleText(dateRange);
-//		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
+		// driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
 		Reporter.log("Select Date Range as '" + dateRange
 				+ "' from the drop down<br>");
 	}
@@ -524,22 +524,31 @@ public class TaxExemptPage extends Common {
 						.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
 								+ count + "]"));
 	}
-	
+
 	public void clickOnEditButton(int count) {
 		sleep(2000);
 		WebElement editButton = driver
 				.findElement(By
 						.xpath("(//table[@id='tax_exempt_table']//button[@value='Edit'])["
 								+ count + "]"));
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].scrollIntoView();", editButton);
 		jse.executeScript("arguments[0].click();", editButton);
 		Reporter.log("Click on " + count + " Edit Button");
 	}
-	
+
 	public void clickOnEditButton(WebElement editBtn) {
 		sleep(1000);
 		action.moveToElement(editBtn).click().perform();
 		Reporter.log("Click on Edit Button");
+	}
+
+	public WebElement taxAmount() {
+		wait.until(ExpectedConditions.elementToBeClickable(By
+				.xpath("//inp;ut[@class='text-right money-format ebos-input form-control']")));
+		return driver
+				.findElement(By
+						.xpath("//input[@class='text-right money-format ebos-input form-control']"));
+
 	}
 }

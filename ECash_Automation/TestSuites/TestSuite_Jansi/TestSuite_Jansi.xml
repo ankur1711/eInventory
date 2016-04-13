@@ -11,12 +11,12 @@
 	</parameter>
 	<test name="Drawer Countdown  - US 84">
 		<classes>
-			 <!--<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage"/>-->
+			 <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage"/>
 				 <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
-					<methods>
+				<!--	<methods>
 					<include
-						name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage" />
-				</methods>
+						name="viewDateRangeOptions" />
+				</methods>-->
 			</class>
 		</classes>
 	</test>    <!-- Drawer Countdown - US 84 -->

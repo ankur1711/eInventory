@@ -37,12 +37,16 @@ public class TestTaxExemptSales extends PageObjects {
 	public void viewDateRangeOptions(GroupSalesData data)
 			throws InterruptedException, ParseException {
 		// select user number
-
 		getHomePage(driver).selectUser(data.getUserNumber());
+		// select location id
 		getHomePage(driver).selectStore(data.getStoreNumber());
+		// Open Other cash fuction
 		getHomePage(driver).openOtherCashFunctionsMenu();
+		// select group sales
 		getHomePage(driver).selectOtherCashFunctionsOptions("Group Sales");
+		// click taxexempt sales
 		getTaxExemptSalesPage(driver).clickTaxExemptSales();
+		// verify Custom date range option present in date range drop down
 		Assert.assertTrue(
 				checkDropDownValues(getTaxExemptSalesPage(driver)
 						.getOptionsForDateRangeDropDown(), "Custom Date Range"),
@@ -217,7 +221,7 @@ public class TestTaxExemptSales extends PageObjects {
 		getTaxExemptSalesPage(driver).selectDate(
 				getTaxExemptSalesPage(driver).taxExemptStartDatePrevButton(),
 				getTaxExemptSalesPage(driver).taxExemptStartDateNextButton(),
-				getTaxExemptSalesPage(driver).getStartDate(), "-10", "5");
+				getTaxExemptSalesPage(driver).getStartDate(), "-10", "3");
 		// Select the End Date
 		// getTaxExemptSalesPage(driver).openEndDateDatePicker();
 		// getTaxExemptSalesPage(driver).selectDate(getTaxExemptSalesPage(driver).taxExemptEndDatePrevButton(),
@@ -456,7 +460,7 @@ public class TestTaxExemptSales extends PageObjects {
 		getTaxExemptSalesPage(driver).selectDate(
 				getTaxExemptSalesPage(driver).taxExemptStartDatePrevButton(),
 				getTaxExemptSalesPage(driver).taxExemptStartDateNextButton(),
-				getTaxExemptSalesPage(driver).getStartDate(), "-10", "5");
+				getTaxExemptSalesPage(driver).getStartDate(), "+10", "3");
 
 		// Select the End Date
 		// getTaxExemptSalesPage(driver).openEndDateDatePicker();
@@ -504,10 +508,15 @@ public class TestTaxExemptSales extends PageObjects {
 	@Test(testName = "Verify the Fields of Tax Exempt Sales Landing Page on cloud app.", description = "Verify that Shift manager is able to view Following Fields are Displayed on Tax Exempt Sales Landing Page(Date and Time,Register #,Amount,User,Tax ID Number,Organization Name,Deposit Status).", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 2)
 	@TestInfo(testCaseID = "TC 3172", userStory = "US592", testCaseDescription = "Verify that Shift manager is able to view Following Fields are Displayed on Tax Exempt Sales Landing Page(Date and Time,Register #,Amount,User,Tax ID Number,Organization Name,Deposit Status).")
 	public void viewTaxExemptSalesLandingPageFields(GroupSalesData data) {
+		// select user id
 		getHomePage(driver).selectUser(data.getUserNumber());
+		// select Location ID
 		getHomePage(driver).selectStore(data.getStoreNumber());
+		// Open the Other Cash menu
 		getHomePage(driver).openOtherCashFunctionsMenu();
+		// select Group Sales option
 		getHomePage(driver).selectOtherCashFunctionsOptions("Group Sales");
+		// click on Tax exemptsales tab
 		getTaxExemptSalesPage(driver).clickTaxExemptSales();
 
 		// Verify Date And Time Field is displayed on Tax Exempt Sales Landing
@@ -559,8 +568,9 @@ public class TestTaxExemptSales extends PageObjects {
 		getHomePage(driver).openOtherCashFunctionsMenu();
 		// Select the Option as Group Sales
 		getHomePage(driver).selectOtherCashFunctionsOptions("Group Sales");
+		// Click on TaxExempt sales tab
 		getTaxExemptSalesPage(driver).clickTaxExemptSales();
-		// Verify the
+		// Get all edit button and store it in list
 		List<WebElement> editButtonElemens = driver
 				.findElements(By
 						.xpath("//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"));
@@ -568,31 +578,39 @@ public class TestTaxExemptSales extends PageObjects {
 			getTaxExemptSalesPage(driver).clickOnEditButton(count + 1);
 			Reporter.log("OPen the " + (count + 1)
 					+ " entry in Tax Exempt Sales<br>");
-
+			// Verify OrganizationTextBox is enabled
 			Assert.assertTrue(getTaxExemptSalesPage(driver)
 					.organizationTextBox().isEnabled(),
 					"User should not be able to edit the Organization Name");
+			// Verify TaxIdNumber is enabled
 			Assert.assertTrue(getTaxExemptSalesPage(driver)
 					.taxIdNumberTextBox().isEnabled(),
 					"User should not be able to edit the Tax Id Number");
+			// Verify ContactNameText is enabled
 			Assert.assertTrue(getTaxExemptSalesPage(driver)
 					.contactNameTextBox().isEnabled(),
 					"User should not be able to edit the Contact Name");
+			// Verify AddressLine1 Text box is enabled
 			Assert.assertTrue(getTaxExemptSalesPage(driver)
 					.addressLine1TextBox().isEnabled(),
 					"User Should not be able to edit the Address Line1");
+			// Verify AddressLine2 Text box is enabled
 			Assert.assertTrue(getTaxExemptSalesPage(driver)
 					.addressLine2TextBox().isEnabled(),
 					"Address Line2 is not enabled");
+			// Verify City Text box is enabled
 			Assert.assertTrue(getTaxExemptSalesPage(driver).cityTextBox()
 					.isEnabled(), "City is not enabled");
+			// Verify email text box is enabled
 			Assert.assertTrue(
 					getTaxExemptSalesPage(driver).emailTextBox().isEnabled(),
 					"Email is not enabled on Tax Exempt sales Modular Form For Finalized Deposit, so User is not be able to enter/edit the values");
+			// Verify phone number Text box is enabled
 			Assert.assertTrue(
 					getTaxExemptSalesPage(driver).phoneNumberTextBox()
 							.isEnabled(),
 					"Phone Number is not enabled on Tax Exempt sales Modular Form For Finalized Deposit, so User is not be able to enter/edit the values");
+			// Verify zip code Text box is enabled
 			Assert.assertTrue(
 					getTaxExemptSalesPage(driver).zipCodeTextBox().isEnabled(),
 					"Zip Code Text Box is not enabled on Tax Exempt sales Modular Form For Finalized Deposit, so User is not be able to enter/edit the values");
@@ -608,7 +626,6 @@ public class TestTaxExemptSales extends PageObjects {
 	@Test(testName = "Verifying details from Tax Exempt were entered in DCD, those details need to populate on Tax Exempt Landing Page.", description = "Viewing and verifying that following Fields are manual entry fields  in tax exempt Sales Detail Entry Page on Cloud App.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 4)
 	@TestInfo(testCaseID = "TC 3480", userStory = "US440", testCaseDescription = "Viewing and verifying that following Fields are manual entry fields  in tax exempt Sales Detail Entry Page on Cloud App.")
 	public void verifyManualEntryFields(GroupSalesData data) {
-		// Select user number
 		getHomePage(driver).selectUser(data.getUserNumber());
 		// Select Store Number
 		getHomePage(driver).selectStore(data.getStoreNumber());
@@ -633,52 +650,53 @@ public class TestTaxExemptSales extends PageObjects {
 					.clear();
 			getTaxExemptSalesPage(driver).organizationTextBox().sendKeys(
 					"Test Organization" + Integer.toString(count));
-			
+
 			getTaxExemptSalesPage(driver).taxIdNumberTextBox().click();
 			getTaxExemptSalesPage(driver).taxIdNumberTextBox().clear();
-			getTaxExemptSalesPage(driver).taxIdNumberTextBox().sendKeys("TID" + Integer.toString(generateRandomNumber()));			
-			
+			getTaxExemptSalesPage(driver).taxIdNumberTextBox().sendKeys(
+					"TID" + Integer.toString(generateRandomNumber()));
+
 			getTaxExemptSalesPage(driver).contactNameTextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
 							.xpath("//input[@id='contact_te0']"))).clear();
-			getTaxExemptSalesPage(driver)
-					.contactNameTextBox()
-					.sendKeys(
-							"Test Contact Name_" + Integer.toString(generateRandomNumber()));
-			
+			getTaxExemptSalesPage(driver).contactNameTextBox().sendKeys(
+					"Test Contact Name_"
+							+ Integer.toString(generateRandomNumber()));
+
 			getTaxExemptSalesPage(driver).addressLine1TextBox().click();
 			wait.until(
 					ExpectedConditions.elementToBeClickable(By
 							.xpath("//div[@id='detail_te0']/div[2]/div[1]/div/input")))
 					.clear();
-			getTaxExemptSalesPage(driver)
-					.addressLine1TextBox()
-					.sendKeys(
-							"Test Address 1_" + Integer.toString(generateRandomNumber()));
-			
+			getTaxExemptSalesPage(driver).addressLine1TextBox().sendKeys(
+					"Test Address 1_"
+							+ Integer.toString(generateRandomNumber()));
+
 			getTaxExemptSalesPage(driver).addressLine2TextBox().click();
 			getTaxExemptSalesPage(driver).addressLine2TextBox().clear();
-			getTaxExemptSalesPage(driver)
-					.addressLine2TextBox()
-					.sendKeys(
-							"Test Address 2_" + Integer.toString(generateRandomNumber()));
-			
+			getTaxExemptSalesPage(driver).addressLine2TextBox().sendKeys(
+					"Test Address 2_"
+							+ Integer.toString(generateRandomNumber()));
+
 			getTaxExemptSalesPage(driver).cityTextBox().click();
 			getTaxExemptSalesPage(driver).cityTextBox().clear();
 			getTaxExemptSalesPage(driver).cityTextBox().sendKeys(
 					"Test City_" + Integer.toString(generateRandomNumber()));
 			/*
-			 * Commented as the field property has been changed to take only a maximum of 5 characters
+			 * Commented as the field property has been changed to take only a
+			 * maximum of 5 characters
 			 * 
 			 * Done on 11-04-2016 by Jansi
 			 * 
 			 * getTaxExemptSalesPage(driver).zipCodeTextBox().click();
-			getTaxExemptSalesPage(driver).zipCodeTextBox().clear();
-			getTaxExemptSalesPage(driver).zipCodeTextBox().sendKeys("123456");
-			Assert.assertTrue(getTaxExemptSalesPage(driver)
-					.zipCodePopUpValidation().isDisplayed(),
-					"Zip Code error message is not displayed");*/
+			 * getTaxExemptSalesPage(driver).zipCodeTextBox().clear();
+			 * getTaxExemptSalesPage
+			 * (driver).zipCodeTextBox().sendKeys("123456");
+			 * Assert.assertTrue(getTaxExemptSalesPage(driver)
+			 * .zipCodePopUpValidation().isDisplayed(),
+			 * "Zip Code error message is not displayed");
+			 */
 			getTaxExemptSalesPage(driver).zipCodeTextBox().click();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().clear();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().sendKeys("12345");
@@ -694,59 +712,63 @@ public class TestTaxExemptSales extends PageObjects {
 			getTaxExemptSalesPage(driver).emailTextBox().click();
 			getTaxExemptSalesPage(driver).emailTextBox().clear();
 			getTaxExemptSalesPage(driver).emailTextBox().sendKeys(
-					"TestEmailAddr_" + Integer.toString(generateRandomNumber()) + "@mcd.com");
+					"TestEmailAddr_" + Integer.toString(generateRandomNumber())
+							+ "@mcd.com");
 			// Enter Phone Number
 			getTaxExemptSalesPage(driver).phoneNumberTextBox().click();
 			getTaxExemptSalesPage(driver).phoneNumberTextBox().clear();
-			getTaxExemptSalesPage(driver).phoneNumberTextBox().sendKeys(Integer.toString(generateRandomNumber()));
-			
+			getTaxExemptSalesPage(driver).phoneNumberTextBox().sendKeys(
+					Integer.toString(generateRandomNumber()));
+
 			getTaxExemptSalesPage(driver).submitTaxExemptSalesModularWindow()
 					.click();
 		}
 
 	}
 
-	@Test(testName = "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App.", description = "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 5)
-	@TestInfo(testCaseID = "TC 3478", userStory = "US440", testCaseDescription = "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App.")
-	public void verifyAutopopulatedFields(GroupSalesData data) {
-		// Select user number
-		getHomePage(driver).selectUser(data.getUserNumber());
-		// Select Store Number
-		getHomePage(driver).selectStore(data.getStoreNumber());
-		// Open E-Cash - Other Cash Functions Menu
-		getHomePage(driver).openOtherCashFunctionsMenu();
-		// Select the Option as Group Sales
-		getHomePage(driver).selectOtherCashFunctionsOptions("Group Sales");
-		getTaxExemptSalesPage(driver).clickTaxExemptSales();
-		// Verify the
-		List<WebElement> editButtonElemens = driver
-				.findElements(By
-						.xpath("//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"));
-		for (int count = 0; count < editButtonElemens.size(); count++) {
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")));
-
-			driver.findElement(
-					By.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")).click();
-			Reporter.log("OPen the " + (count + 1)
-					+ " entry in Tax Exempt Sales<br>");
-
-			/*
-			 * Assert.assertFalse( getTaxExemptSalesPage(driver).taxAmountField
-			 * .isEnabled(),
-			 * "User should be able to view Amout Field is Enabled");
-			 * Assert.assertFalse
-			 * (getTaxExemptSalesPage(driver).autoPopulatedFields.isDisplayed(),
-			 * "User should be able to view the all auto-populated fields are Enabled"
-			 * );
-			 * getTaxExemptSalesPage(driver).closeTaxExemptModularWindow().click
-			 * ();
-			 */
-		}
-
-	}
+	/*
+	 * @Test(testName =
+	 * "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App."
+	 * , description =
+	 * "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App."
+	 * , dataProvider = "TC_1298", dataProviderClass =
+	 * GroupSales_DataProvider.class, priority = 5)
+	 * 
+	 * @TestInfo(testCaseID = "TC 3478", userStory = "US440",
+	 * testCaseDescription =
+	 * "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App."
+	 * ) public void verifyAutopopulatedFields(GroupSalesData data) { // Select
+	 * user number getHomePage(driver).selectUser(data.getUserNumber()); //
+	 * Select Store Number
+	 * getHomePage(driver).selectStore(data.getStoreNumber()); // Open E-Cash -
+	 * Other Cash Functions Menu
+	 * getHomePage(driver).openOtherCashFunctionsMenu(); // Select the Option as
+	 * Group Sales
+	 * getHomePage(driver).selectOtherCashFunctionsOptions("Group Sales");
+	 * getTaxExemptSalesPage(driver).clickTaxExemptSales(); // Verify the
+	 * List<WebElement> editButtonElemens = driver .findElements(By .xpath(
+	 * "//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"
+	 * )); for (int count = 0; count < editButtonElemens.size(); count++) {
+	 * wait.until(ExpectedConditions.elementToBeClickable(By .xpath(
+	 * "(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
+	 * + (count + 1) + "]")));
+	 * 
+	 * driver.findElement( By.xpath(
+	 * "(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
+	 * + (count + 1) + "]")).click(); Reporter.log("OPen the " + (count + 1) +
+	 * " entry in Tax Exempt Sales<br>"); // Tax Amount Field is not enabled
+	 * Assert.assertFalse(getTaxExemptSalesPage(driver).taxAmount()
+	 * .isEnabled(), "User should be able to view Amout Field is Enabled");
+	 * 
+	 * Assert.assertFalse( getTaxExemptSalesPage(driver).autoPopulatedFields
+	 * .isDisplayed(),
+	 * "User should be able to view the all auto-populated fields are Enabled");
+	 * getTaxExemptSalesPage(driver).closeTaxExemptModularWindow().click();
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 
 	@Test(testName = "Verify that store level user is able to filter Tax Exempt sales entries by organization name,user Id and Deposit code  on Tax Exempt sales landing page.", description = "Verify that store level user is able to filter Tax Exempt sales entries by organization name,user Id and Deposit codeon Tax Exempt sales landing page.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 6)
 	@TestInfo(testCaseID = "TC1494", userStory = "US442", testCaseDescription = "Verify that store level user is able to filter Tax Exempt sales entries by organization name,user Id and Deposit code on Tax Exempt sales landing page.")
@@ -904,15 +926,17 @@ public class TestTaxExemptSales extends PageObjects {
 			int secondRegisterIdDisplayedOnUI = Integer
 					.parseInt(registerElementsDisplayedOnUIAscending
 							.get(count + 1).getText().trim());
-			// Verify the 
+			// Verify the
 			Assert.assertTrue(
 					firstRegisteIdDisplayedOnUI <= secondRegisterIdDisplayedOnUI,
 					"Register ID's are not Sorted in Asending Order");
-			Reporter.log(firstRegisteIdDisplayedOnUI + " was dislayed in ascending order<br>");
+			Reporter.log(firstRegisteIdDisplayedOnUI
+					+ " was dislayed in ascending order<br>");
 		}
 		// Perform double click on Regiter
 		getTaxExemptSalesPage(driver).taxExemptRegisterField.click();
-		// Get all the Register elements as it was in descending order by default
+		// Get all the Register elements as it was in descending order by
+		// default
 		List<WebElement> registerElementsDisplayedOnUIDDescending = getTaxExemptSalesPage(
 				driver).getListOfRegisterElements();
 		for (int count = 0; count < registerElementsDisplayedOnUIDDescending
@@ -926,7 +950,8 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstRegisterIdDislayedOnUIDescending >= secondRegisterDisplayedOnUIDescending,
 					"Register ID is not displayed in Descending Order on UI");
-			Reporter.log(firstRegisterIdDislayedOnUIDescending + " was dislayed in descending order<br>");
+			Reporter.log(firstRegisterIdDislayedOnUIDescending
+					+ " was dislayed in descending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptAmountField.click();
 		// Get all the Amount elements as it was in descending order by default
@@ -942,7 +967,8 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstAmountDisplayedOnUI <= secondAmountDisplayedOnUI,
 					"Amount is not displayed on Ascending Order");
-			Reporter.log(firstAmountDisplayedOnUI + " was dislayed in ascending order<br>");
+			Reporter.log(firstAmountDisplayedOnUI
+					+ " was dislayed in ascending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptAmountField.click();
 		// Get all the Amount elements as it was in descending order by default
@@ -958,7 +984,8 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstAmountDisplayedOnUIDescendingOrder >= secondAmountDisplayedOnUIDescendingOrder,
 					"Amount is not displayed on Descending Order");
-			Reporter.log(firstAmountDisplayedOnUIDescendingOrder + " was dislayed in descending order<br>");
+			Reporter.log(firstAmountDisplayedOnUIDescendingOrder
+					+ " was dislayed in descending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptUserField.click();
 		// Get all the User elements as it was in descending order by default
@@ -974,7 +1001,8 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstUserDisplayedOnUIAscending <= secondUserDisplayedOnUIAscending,
 					"User id is not displayed in Ascending Order");
-			Reporter.log(firstUserDisplayedOnUIAscending + " was dislayed in ascending order<br>");
+			Reporter.log(firstUserDisplayedOnUIAscending
+					+ " was dislayed in ascending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptUserField.click();
 		// Get all the User elements as it was in descending order by default
@@ -990,10 +1018,12 @@ public class TestTaxExemptSales extends PageObjects {
 			Assert.assertTrue(
 					firstUserIdDisplayedOnUIDescending >= secondUserIdDisplayedOnUIDescending,
 					"User Id is not displayed Descending Order");
-			Reporter.log(firstUserIdDisplayedOnUIDescending + " was dislayed in descending order<br>");
+			Reporter.log(firstUserIdDisplayedOnUIDescending
+					+ " was dislayed in descending order<br>");
 		}
 		getTaxExemptSalesPage(driver).taxExemptOrganizationField.click();
-		// Get all the OrganizationName elements as it was in descending order by default
+		// Get all the OrganizationName elements as it was in descending order
+		// by default
 		List<WebElement> organizationNameDisplayedOnUIAscending = getTaxExemptSalesPage(
 				driver).getListOfOrganizationName();
 		for (int count = 0; count < organizationNameDisplayedOnUIAscending
@@ -1010,13 +1040,15 @@ public class TestTaxExemptSales extends PageObjects {
 							firstOrganizationNameDisplayedOnUIAscending
 									.compareToIgnoreCase(secondOrganizationNameDisplayedOnUIAscending) <= 0,
 							"Organization name is not displayed in Ascending Order");
-					Reporter.log(firstOrganizationNameDisplayedOnUIAscending + " was dislayed in ascending order<br>");
+					Reporter.log(firstOrganizationNameDisplayedOnUIAscending
+							+ " was dislayed in ascending order<br>");
 				}
 
 			}
 		}
 		getTaxExemptSalesPage(driver).taxExemptOrganizationField.click();
-		// Get all the User OrganizationName as it was in descending order by default
+		// Get all the User OrganizationName as it was in descending order by
+		// default
 		List<WebElement> organizationNameDisplayedOnUIDescending = getTaxExemptSalesPage(
 				driver).getListOfOrganizationName();
 		for (int count = 0; count < organizationNameDisplayedOnUIDescending
@@ -1033,13 +1065,15 @@ public class TestTaxExemptSales extends PageObjects {
 							firstOrganizationNameDisplayedOnUIDescending
 									.compareToIgnoreCase(secondOrganizationNameDisplayedOnUIDescending) >= 0,
 							"Organization Name is not displayed in Descending Order");
-					Reporter.log(firstOrganizationNameDisplayedOnUIDescending + " was dislayed in descending order<br>");
+					Reporter.log(firstOrganizationNameDisplayedOnUIDescending
+							+ " was dislayed in descending order<br>");
 				}
 			}
 		}
 		// Click on Tax ID Number field to sort in ascending order
 		getTaxExemptSalesPage(driver).taxIDNumberField.click();
-		// Get all the TaxId Numbers elements as it was in descending order by default
+		// Get all the TaxId Numbers elements as it was in descending order by
+		// default
 		List<WebElement> taxIDNumberDisplayedOnUIAscendingOrder = getTaxExemptSalesPage(
 				driver).getListOfTaxIdNumber();
 		for (int count = 0; count < taxIDNumberDisplayedOnUIAscendingOrder
@@ -1056,14 +1090,16 @@ public class TestTaxExemptSales extends PageObjects {
 							firsttaxIDNumberDisplayedOnUIAscendingOrder
 									.compareToIgnoreCase(secondtaxIDNumberDisplayedOnUIAscendingOrder) <= 0,
 							"Tax ID Number is not displayed in Ascending Order");
-					Reporter.log(firsttaxIDNumberDisplayedOnUIAscendingOrder + " was dislayed in ascending order<br>");
+					Reporter.log(firsttaxIDNumberDisplayedOnUIAscendingOrder
+							+ " was dislayed in ascending order<br>");
 				}
 
 			}
 		}
 		// Click on Tax ID Number field to sort in descending order
 		getTaxExemptSalesPage(driver).taxIDNumberField.click();
-		// Get all the TaxId Numbers elements as it was in descending order by default
+		// Get all the TaxId Numbers elements as it was in descending order by
+		// default
 		List<WebElement> taxIDNumberDisplayedOnUIDescendingOrder = getTaxExemptSalesPage(
 				driver).getListOfTaxIdNumber();
 		for (int count = 0; count < taxIDNumberDisplayedOnUIDescendingOrder
@@ -1080,14 +1116,16 @@ public class TestTaxExemptSales extends PageObjects {
 							firsttaxIDNumberDisplayedOnUIDescendingOrder
 									.compareToIgnoreCase(secondtaxIDNumberDisplayedOnUIDescendingOrder) >= 0,
 							"Tax ID Number is not displayed in Descending Order");
-					Reporter.log(firsttaxIDNumberDisplayedOnUIDescendingOrder + " was dislayed in descending order<br>");
+					Reporter.log(firsttaxIDNumberDisplayedOnUIDescendingOrder
+							+ " was dislayed in descending order<br>");
 				}
 
 			}
 		}
 		// Click on Deposit Status field to sort in ascending order
 		getTaxExemptSalesPage(driver).depositStatus.click();
-		// Get all the Deposit Status elements as it was in descending order by default
+		// Get all the Deposit Status elements as it was in descending order by
+		// default
 		List<WebElement> depositStatusDisplayedOnUIAscendingOrder = getTaxExemptSalesPage(
 				driver).getListOfDepositStatus();
 		for (int count = 0; count < depositStatusDisplayedOnUIAscendingOrder
@@ -1104,14 +1142,16 @@ public class TestTaxExemptSales extends PageObjects {
 							firstDepositStatusDisplayedOnUIAscendingOrder
 									.compareToIgnoreCase(secondDepositStatusDisplayedOnUIAscendingOrder) <= 0,
 							"Deposit Status is not displayed in Ascending Order");
-					Reporter.log(firstDepositStatusDisplayedOnUIAscendingOrder + " was dislayed in ascending order<br>");
+					Reporter.log(firstDepositStatusDisplayedOnUIAscendingOrder
+							+ " was dislayed in ascending order<br>");
 				}
 
 			}
 		}
 		// Click on Deposit Status field to sort in descending order
 		getTaxExemptSalesPage(driver).depositStatus.click();
-		// Get all the Deposit Status elements as it was in descending order by default
+		// Get all the Deposit Status elements as it was in descending order by
+		// default
 		List<WebElement> depositStatusDisplayedOnUIDescendingOrder = getTaxExemptSalesPage(
 				driver).getListOfDepositStatus();
 		for (int count = 0; count < depositStatusDisplayedOnUIDescendingOrder
@@ -1128,14 +1168,14 @@ public class TestTaxExemptSales extends PageObjects {
 							firstDepositStatusDisplayedOnUIDescendingOrder
 									.compareToIgnoreCase(secondDepositStatusDisplayedOnUIDescendingOrder) >= 0,
 							"Deposit Status is not displayed in Descending Order");
-					Reporter.log(firstDepositStatusDisplayedOnUIDescendingOrder + " was dislayed in descending order<br>");
+					Reporter.log(firstDepositStatusDisplayedOnUIDescendingOrder
+							+ " was dislayed in descending order<br>");
 				}
 
 			}
 		}
 	}
 
-	
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();

@@ -141,9 +141,8 @@ public class HomePage extends Common {
 		driver.findElement(
 				By.xpath("//a[contains(text(),'" + eCashOption + "')]"))
 				.isDisplayed();
-		wait.until(
-				ExpectedConditions.elementToBeClickable(driver.findElement(By
-						.xpath("//a[text()='" + eCashOption + "']"))));
+		wait.until(ExpectedConditions.elementToBeClickable(driver
+				.findElement(By.xpath("//a[text()='" + eCashOption + "']"))));
 		Reporter.log("Select the Cash management option as " + eCashOption
 				+ "<br>");
 		driver.findElement(By.xpath("//a[text()='" + eCashOption + "']"))
@@ -190,10 +189,10 @@ public class HomePage extends Common {
 	 * @return - the element of the option name
 	 */
 	public WebElement otherCashFunctionOptionLink(String optionName) {
+		sleep(1000);
 		return driver.findElement(By.xpath("//a[text()='" + optionName + "']"));
 	}
-	
-	
+
 	/*
 	 * public boolean isECashOptionAvailable(String eCashOption) {
 	 * Reporter.log("Click on Menu Icon<br>"); menuIcon().click();
