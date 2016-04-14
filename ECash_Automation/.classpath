@@ -10,8 +10,8 @@
 	<classpathentry exported="true" kind="lib" path="LibraryFiles/testng-6.8.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="LibraryFiles/velocity-dep-1.4.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/mc29012/Downloads/selenium-java-2.46.0/selenium-2.46.0/selenium-java-2.46.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mc29012/Downloads/selenium-java-2.46.0/selenium-2.46.0/selenium-java-2.46.0-srcs.jar"/>
-	<classpathentry kind="lib" path="C:/Users/mc29012/Downloads/selenium-server-standalone-2.48.0.jar"/>
+	<classpathentry kind="lib" path="LibraryFiles/selenium-java-2.46.0-srcs.jar"/>
+	<classpathentry kind="lib" path="LibraryFiles/selenium-java-2.46.0.jar"/>
+	<classpathentry kind="lib" path="LibraryFiles/selenium-server-standalone-2.46.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
