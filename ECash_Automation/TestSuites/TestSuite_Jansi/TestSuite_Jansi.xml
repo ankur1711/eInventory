@@ -6,8 +6,8 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		<listener class-name="com.mcdebos.common.listeners.TestResultListener" />
 	</listeners>
-	<parameter name="browser" value="chrome" />
-	<parameter name="url" value="https://iit.ebos.qsrsoft.com/#">
+	<parameter name="browser" value="firefox" />
+	<parameter name="url" value="https://iit.ebos.qsrsoft.com">
 	</parameter>
 	<test name="Group Sales Bundle">
 		<classes>
@@ -17,6 +17,7 @@
 					<include
 						name="viewDateRangeOptions" />
 				</methods>-->
+				<!--</class>-->
 			<!--</class>-->
 		</classes>
 	</test>    <!-- Drawer Countdown - US 84 -->	
