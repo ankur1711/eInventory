@@ -59,6 +59,66 @@ public class GiftCertificateRedemptionsPage extends Common{
 	@FindBy(xpath = "//table[@id='ticketTable']//label[text()='Start Date']")
 	public WebElement startDateButton;
 	
+	@FindBy(xpath = "//table[@id = 'ticketTable']//label[text()='End Date']")
+	public WebElement endDateButton;
+	
+	@FindBy(xpath = "//table[@id = 'ticketTable']//label[text()='Preparer']")
+	public WebElement preparerButton;
+	
+	@FindBy(xpath = "//table[@id = 'ticketTable']//label[text()='Amount']")
+	public WebElement amountButton;
+	
+	
+	@FindBy(xpath="(//div[@class='xdsoft_datepicker active'])[5]"
+			+ "//button[@class='xdsoft_prev']")
+	public WebElement startDateCalenderWidgetPreviousButton;
+	
+	@FindBy(xpath = "(//div[@class='xdsoft_datepicker active'])[5]"
+			+ "//button[@class='xdsoft_next']")
+	public WebElement startDateCalenderWidgetNextButton;
+	
+	@FindBy(xpath="(//div[@class='xdsoft_datepicker active'])[6]"
+			+ "//button[@class='xdsoft_prev']")
+	public WebElement endDateCalenderWidgetPreviousButton;
+	
+	@FindBy(xpath="(//div[@class='xdsoft_datepicker active'])[6]"
+			+ "//button[@class='xdsoft_next']")
+	public WebElement endDateCalenderWidgetNextButton;
+	
+	public void clickOnViewButton(int index) {
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(driver.findElement(By.xpath("//table[@id='ticketTable']/tbody/tr["
+		+ index + "]/td[9]"))).perform();
+		
+		action.click(driver.findElement(By.xpath("//table[@id='ticketTable']/tbody/tr["
+		+ index + "]/td[9]"))).perform();
+
+		Reporter.log("View Button clicked<br>");
+		
+		}
+	
+	public void openDateRangeDropDown(){
+		dateRangeDropDown.click();
+		Reporter.log("Date Range Drop Down Clicked and opened<br>");
+	}
+	
+	public void openStartDateCalenderWidget() {
+		startDateCalendarWidget.click();
+		Reporter.log("Start Date Calender Widget was Clicked and Opened");
+	}
+	
+	public void openEndDateCalenderWidget(){
+		endDateCalendarWidget.click();
+		Reporter.log("End Date Calender Widget was Clicked and Opened");
+	}
+	
+	public void clickGiftCertificatesRedemptionTab(){
+		giftCertificateRedemptionTab.click();
+		Reporter.log("Gift Certificate Redemption Tab was Clicked and Opened");
+	}
+	
 	
 
 }
