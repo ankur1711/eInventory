@@ -614,17 +614,10 @@ public class DrawerCountDownPage extends Common {
 			wait.until(ExpectedConditions.elementToBeClickable(By
 					.id("env_id_input")));
 			driver.findElement(By.id("env_id_input")).click();
-			System.out.println("Old Env ID in "
-					+ (count + 1)
-					+ " : "
-					+ driver.findElement(By.id("env_id_input")).getAttribute(
-							"value"));
 			driver.findElement(By.id("env_id_input")).clear();
 			driver.findElement(By.id("env_id_input")).sendKeys(Keys.BACK_SPACE,
 					envelopeID);
 			Reporter.log("Enter Envelope ID as " + envelopeID + "<br>");
-			System.out.println("New Env ID entered in " + (count + 1) + " : "
-					+ envelopeID);
 			wait.until(ExpectedConditions.elementToBeClickable(By
 					.xpath("//div[@class='pull-right']/input[@value='Save']")));
 			driver.findElement(
@@ -637,8 +630,6 @@ public class DrawerCountDownPage extends Common {
 			String updatedStatus = driver.findElement(
 					By.xpath("(//span[contains(text(),'Inprogress')])["
 							+ (count + 1) + "]")).getText();
-			System.out.println("Status of " + (count + 1) + ": "
-					+ updatedStatus);
 			if (updatedStatus.equalsIgnoreCase("Inprogress")) {
 				executionResult = true;
 			} else {
@@ -789,14 +780,12 @@ public class DrawerCountDownPage extends Common {
 		Select select = new Select(
 				driver.findElement(By.id("shift_mngr_input")));
 		select.selectByIndex(1);
-		System.out.println(select.getFirstSelectedOption().getText());
 		wait.until(ExpectedConditions.elementToBeClickable(By
 				.xpath("//div[@class='pull-right']/input[@value='Save']")));
 		driver.findElement(
 				By.xpath("//div[@class='pull-right']/input[@value='Save']"))
 				.click();
 		return executionResult;
-
 	}
 
 	public boolean cashierOption() {
@@ -804,7 +793,6 @@ public class DrawerCountDownPage extends Common {
 		driver.findElement(By.id("cashier_input")).click();
 		Select select = new Select(driver.findElement(By.id("cashier_input")));
 		select.selectByIndex(1);
-		System.out.println(select.getFirstSelectedOption().getText());
 		wait.until(ExpectedConditions.elementToBeClickable(By
 				.xpath("//div[@class='pull-right']/input[@value='Save']")));
 		driver.findElement(
@@ -818,7 +806,6 @@ public class DrawerCountDownPage extends Common {
 		driver.findElement(By.id("deposit_code_input")).click();
 		Select select = new Select(driver.findElement(By.id("deposit_code_input")));
 		select.selectByIndex(1);
-		System.out.println(select.getFirstSelectedOption().getText());
 		wait.until(ExpectedConditions.elementToBeClickable(By
 				.xpath("//div[@class='pull-right']/input[@value='Save']")));
 		driver.findElement(

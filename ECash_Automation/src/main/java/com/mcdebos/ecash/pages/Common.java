@@ -165,16 +165,6 @@ public abstract class Common {
 		return executionResult;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(Common.verifyDateWithInRange("12/17/2015",
-				"03/17/2016", "12/18/2015"));
-	}
-
-	public static boolean compareDate() {
-		return false;
-
-	}
-
 	public int getMonthIndex(String month) {
 		int monthIndex = 0;
 		switch (month.toUpperCase()) {

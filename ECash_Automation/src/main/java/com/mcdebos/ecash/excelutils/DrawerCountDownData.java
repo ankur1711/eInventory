@@ -2,6 +2,8 @@ package com.mcdebos.ecash.excelutils;
 
 import java.io.File;
 
+import org.testng.Reporter;
+
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -94,8 +96,7 @@ public class DrawerCountDownData {
 			setGiftCertificates(sheet.getCell(giftCertificatesIndex, 1)
 					.getContents());
 		} catch (Exception e) {
-			System.out
-					.println("Error Occured while reading data f,rom the excel file");
+			Reporter.log("Error Occured while reading data f,rom the excel file");
 		}
 	}
 }

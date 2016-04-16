@@ -374,11 +374,9 @@ public class TestDrawerCount extends PageObjects {
 				getDrawerCountDownPage(driver).shiftManagerOption);
 
 		select.selectByIndex(1);
-		System.out.println(select.getFirstSelectedOption().getText());
 		Select selectCashier = new Select(
 				getDrawerCountDownPage(driver).cashierOption);
 		selectCashier.selectByIndex(1);
-		System.out.println(selectCashier.getFirstSelectedOption().getText());
 		getDrawerCountDownPage(driver).manualRefundsAndOverrings(
 				data.getManualRefundsOverrings());
 		getDrawerCountDownPage(driver).giftCertificatesQuantity(

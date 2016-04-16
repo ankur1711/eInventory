@@ -11,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,6 +18,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
 
 public class TaxExemptPage extends Common {
+	
+	JavascriptExecutor jse = (JavascriptExecutor) driver;
 
 	public TaxExemptPage(WebDriver driver) {
 		super(driver);
@@ -38,18 +39,11 @@ public class TaxExemptPage extends Common {
 	public WebElement endDatePicker;
 
 	public void clickOnShowResultsButton(int index) {
-		Actions action = new Actions(driver);
-		action.moveToElement(
-				driver.findElement(By
-						.xpath("(//button[@value='Show Results'])[" + index
-								+ "]"))).perform();
-		action.click(
-				driver.findElement(By
-						.xpath("(//button[@value='Show Results'])[" + index
-								+ "]"))).perform();
+		movetToTopScreen();
+		WebElement showResultsBtn = driver.findElement(By
+				.xpath("(//button[@value='Show Results'])[" + index + "]"));
+		showResultsBtn.click();
 		sleep(500);
-		// driver.findElement(By
-		// .xpath("(//button[@value='Show Results'])["+index+"]")).click();
 		Reporter.log("Show Results button clicked<br>");
 	}
 
@@ -75,24 +69,24 @@ public class TaxExemptPage extends Common {
 	}
 
 	public void openStartDateDatePicker() {
+		movetToTopScreen();
 		startDatePicker.click();
+//		jse.executeScript("arguments[0].scrollIntoView();", startDatePicker);
+//		jse.executeScript("arguments[0].click();", startDatePicker);
 		Reporter.log("Start Date Picker was Clicked and Opened<br>");
 	}
 
 	public void openEndDateDatePicker() {
+		movetToTopScreen();
 		endDatePicker.click();
+//		jse.executeScript("arguments[0].scrollIntoView();", endDatePicker);
+//		jse.executeScript("arguments[0].click();", endDatePicker);
 		Reporter.log("End Date Picker was Clicked and Opened<br>");
 	}
 
 	public void clickTaxExemptSales() {
 		taxExemptSalesTab.click();
 		Reporter.log("Tax Exempt Sales Tab Clicked and Opened<br>");
-	}
-
-	public void clickShowResultsButton() {
-		showResultsButton.click();
-		Reporter.log("Click on Show Results Button<br>");
-		sleep(1000);
 	}
 
 	@FindBy(id = "tax_exempt_sales_date_range")
@@ -143,10 +137,10 @@ public class TaxExemptPage extends Common {
 	}
 
 	public void selectDateRangeFromDropDown(String dateRange) {
+		movetToTopScreen();
 		Select dateRangeDropDown = new Select(driver.findElement(By
 				.id("tax_exempt_sales_date_range")));
 		dateRangeDropDown.selectByVisibleText(dateRange);
-		// driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
 		Reporter.log("Select Date Range as '" + dateRange
 				+ "' from the drop down<br>");
 	}
@@ -160,35 +154,37 @@ public class TaxExemptPage extends Common {
 	}
 
 	public void selectUserID(String userId) {
+		movetToTopScreen();
 		Select dateRangeDropDown = new Select(driver.findElement(By
 				.id("user_te")));
 		dateRangeDropDown.selectByVisibleText(userId);
-		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
 		Reporter.log("Select User ID as '" + userId
 				+ "' from the drop down<br>");
 	}
 
 	public void selectOrganizationName(String organizationName) {
-		Select dateRangeDropDown = new Select(driver.findElement(By
+		movetToTopScreen();
+		Select organizationNameDropDown = new Select(driver.findElement(By
 				.id("organization_te")));
-		dateRangeDropDown.selectByVisibleText(organizationName);
-		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
+		organizationNameDropDown.selectByVisibleText(organizationName);
 		Reporter.log("Select Organization Name as '" + organizationName
 				+ "' from the drop down<br>");
 	}
 
 	public void selectDepositStatus(String depositCode) {
+		movetToTopScreen();
 		Select dateRangeDropDown = new Select(driver.findElement(By
 				.id("deposit_status_te")));
 		dateRangeDropDown.selectByVisibleText(depositCode);
-		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
 		Reporter.log("Select Deposit Status as '" + depositCode
 				+ "' from the drop down<br>");
 	}
 
 	public void movetToTopScreen() {
 		sleep(500);
-		driver.findElement(By.xpath(".//*[@id='ebos_page_title']")).click();
+		WebElement topOfScreen = driver.findElement(By.xpath(".//*[@id='ebos_page_title']"));
+		jse.executeScript("arguments[0].scrollIntoView();", topOfScreen);
+		jse.executeScript("arguments[0].click();", topOfScreen);
 		Reporter.log("Move to the top of the screen<br>");
 	}
 
@@ -381,41 +377,20 @@ public class TaxExemptPage extends Common {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DATE, Integer.parseInt(noOfDays));
 		Date expectedCalender = calendar.getTime();
-		System.out.println("Expected Date : "
-				+ formatter.format(expectedCalender));
 		String expectedDate = date.format(expectedCalender).replaceFirst(
 				"^0+(?!$)", "");
-		System.out.println("Expected Date : " + expectedDate);
 		String expectedMonth = month.format(expectedCalender);
-		System.out.println("Expected Month : " + expectedMonth);
 		String expectedYear = year.format(expectedCalender);
-		System.out.println("Expected Year : " + expectedYear);
 		// SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("Actual Date : " + actualDateDisplayed);
 		Date currentCalender = formatter.parse(actualDateDisplayed);
-		System.out.println("Displayed Date : "
-				+ formatter.format(currentCalender));
-		System.out.println("Current Date : "
-				+ formatter.format(currentCalender));
 		// String currentMonth = actualDateDisplayed.trim().substring(0, 2);
 		String currentMonth = month.format(currentCalender);
-		System.out.println("Current Month : " + currentMonth);
 		String currentYear = actualDateDisplayed.trim().substring(6);
-		System.out.println("Current Year : " + currentYear);
 		int yearDiff = Integer.parseInt(expectedYear)
 				- Integer.parseInt(currentYear);
-		System.out.println("Year Diff : " + yearDiff);
 		String monthIndex = Integer.toString(getMonthIndex(expectedMonth));
-		System.out.println("getMonthIndex(expectedMonth) : "
-				+ getMonthIndex(expectedMonth));
-		System.out.println("getMonthIndex(currentMonth) : "
-				+ getMonthIndex(currentMonth));
-		System.out
-				.println("getMonthIndex(expectedMonth) - getMonthIndex(currentMonth) : "
-						+ (getMonthIndex(expectedMonth) - getMonthIndex(currentMonth)));
 		int diffInIndex = (getMonthIndex(expectedMonth) - getMonthIndex(currentMonth))
 				+ yearDiff * 12;
-		System.out.println("diffInIndex : " + diffInIndex);
 		moveToCorrectMonth(prevMonthElement, nextMonthElement, diffInIndex);
 		return new String[] { monthIndex, expectedDate };
 	}
@@ -444,8 +419,6 @@ public class TaxExemptPage extends Common {
 			ParseException {
 		String expectedDate[] = moveToDate(prevMonthElement, nextMonthElement,
 				actualDateDisplayed, date);
-		System.out.println("//td[@data-month='" + expectedDate[0]
-				+ "' and @data-date='" + expectedDate[1] + "']");
 		// Select the date
 		wait.until(ExpectedConditions.elementToBeClickable(driver
 				.findElement(By.xpath("(//td[@data-month='" + expectedDate[0]
@@ -532,7 +505,6 @@ public class TaxExemptPage extends Common {
 				.findElement(By
 						.xpath("(//table[@id='tax_exempt_table']//button[@value='Edit'])["
 								+ count + "]"));
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].scrollIntoView();", editButton);
 		jse.executeScript("arguments[0].click();", editButton);
 		Reporter.log("Click on " + count + " Edit Button");

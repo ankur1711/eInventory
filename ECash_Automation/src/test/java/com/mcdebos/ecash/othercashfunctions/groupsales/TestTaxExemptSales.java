@@ -82,7 +82,7 @@ public class TestTaxExemptSales extends PageObjects {
 				"End date was not displayed as current date - "
 						+ getDateByMonths("0"));
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 3 months tax exempt sales entries are displayed
 		// on tax exempt sales landing page
 		// Get all the displayed date for the records
@@ -118,7 +118,7 @@ public class TestTaxExemptSales extends PageObjects {
 				"End date was not displayed as current date - "
 						+ getDateByMonths("0"));
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 6 months tax exempt sales entries are displayed
 		// on tax exempt sales landing page
 		// Get all the displayed date for the records
@@ -154,7 +154,7 @@ public class TestTaxExemptSales extends PageObjects {
 				"End date was not displayed as current date - "
 						+ getDateByMonths("0"));
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 9 months tax exempt sales entries are displayed
 		// on tax exempt sales landing page
 		// Get all the displayed date for the records
@@ -190,7 +190,7 @@ public class TestTaxExemptSales extends PageObjects {
 				"End date was not displayed as current date - "
 						+ getDateByMonths("0"));
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 12 months tax exempt sales entries are displayed
 		// on tax exempt sales landing page
 		// Get all the displayed date for the records
@@ -228,7 +228,7 @@ public class TestTaxExemptSales extends PageObjects {
 		// getTaxExemptSalesPage(driver).taxExemptEndDateNextButton(),
 		// getTaxExemptSalesPage(driver).getEndDate(), "0", "6");
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only selected date tax exempt sales entries are
 		// displayed on tax exempt sales landing page
 		// Get all the displayed date for the records
@@ -297,7 +297,7 @@ public class TestTaxExemptSales extends PageObjects {
 		// Select the date range as 3 months, i.e., 90 Days
 		getTaxExemptSalesPage(driver).selectDateRangeFromDropDown("3 Months");
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 3 months tax exempt sales entries are displayed
 		// on taxexempt sales landing page
 		// Get all the displayed date for the records
@@ -344,7 +344,7 @@ public class TestTaxExemptSales extends PageObjects {
 				"End date was not displayed as current date - "
 						+ getDateByMonths("0"));
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 6 months tax exempt sales entries are displayed
 		// on taxexempt sales landing page
 		// Get all the displayed date for the records
@@ -381,7 +381,7 @@ public class TestTaxExemptSales extends PageObjects {
 		// Select the date range as 9 months
 		getTaxExemptSalesPage(driver).selectDateRangeFromDropDown("9 months");
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 9 months tax exempt sales entries are displayed
 		// on taxexempt sales landing page
 		// Get all the displayed date for the records
@@ -418,7 +418,7 @@ public class TestTaxExemptSales extends PageObjects {
 		// Select the date range as 12 months
 		getTaxExemptSalesPage(driver).selectDateRangeFromDropDown("12 months");
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only 12 months tax exempt sales entries are displayed
 		// on taxexempt sales landing page
 		// Get all the displayed date for the records
@@ -468,7 +468,7 @@ public class TestTaxExemptSales extends PageObjects {
 		// getTaxExemptSalesPage(driver).taxExemptEndDateNextButton(),
 		// getTaxExemptSalesPage(driver).getEndDate(), "0", "6");
 		// Click on Show Results button
-		getTaxExemptSalesPage(driver).clickShowResultsButton();
+		getTaxExemptSalesPage(driver).clickOnShowResultsButton(1);
 		// Verify whether only selected tax exempt sales entries are displayed
 		// on tax exempt sales landing page
 		// Get all the displayed date for the records

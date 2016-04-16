@@ -59,8 +59,7 @@ public class TestResultListener extends TestListenerAdapter {
 		try {
 			fileName = takeSnapShot(tr.getName(), tr);
 		} catch (Exception e) {
-			System.out.println("Error in taking screen shot");
-			e.printStackTrace();
+			Reporter.log("Error in taking screen shot");
 		}
 		Reporter.log("<br> <a href=\"file:///" + fileName
 				+ "\">View Screenshot</a><br>");
@@ -117,6 +116,12 @@ public class TestResultListener extends TestListenerAdapter {
 		TakesScreenshot scrShot = ((TakesScreenshot) driver);
 		// Call getScreenshotAs method to create image file
 		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+		File screenShotsFolder = new File(System.getProperty("user.dir") + "//ScreenShots");
+		// Checking whether ExcelReports folder exists
+		if(!screenShotsFolder.exists()) {
+			// If not exists, it will create the folder
+			screenShotsFolder.mkdir();
+		}
 		// Move image file to new destination
 		String fileName = System.getProperty("user.dir") + "\\ScreenShots\\"
 				+ tcName + System.currentTimeMillis() + ".png";
@@ -134,6 +139,12 @@ public class TestResultListener extends TestListenerAdapter {
 	}
 
 	private void createExcelReport() {
+		File excelFolder = new File(System.getProperty("user.dir") + "//ExcelReports");
+		// Checking whether ExcelReports folder exists
+		if(!excelFolder.exists()) {
+			// If not exists, it will create the folder
+			excelFolder.mkdir();
+		}
 		File exlFile = new File(System.getProperty("user.dir")
 				+ "//ExcelReports//Automation_Report_" + getCurrentDate()
 				+ ".xls");
@@ -143,7 +154,7 @@ public class TestResultListener extends TestListenerAdapter {
 		try {
 			writableWorkbook = Workbook.createWorkbook(exlFile);
 		} catch (IOException e) {
-			System.out.println("Unable to create the excel workbook");
+			Reporter.log("Unable to create the excel workbook");
 		}
 		writableSheet = writableWorkbook.createSheet("Execution Report", 0);
 		WritableFont cellFont = new WritableFont(WritableFont.TIMES, 12);

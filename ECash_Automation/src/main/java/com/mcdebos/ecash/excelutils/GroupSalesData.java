@@ -3,6 +3,8 @@ package com.mcdebos.ecash.excelutils;
 import java.io.File;
 import java.io.IOException;
 
+import org.testng.Reporter;
+
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
@@ -57,9 +59,7 @@ public class GroupSalesData {
 			setStoreNumber(sheet.getCell(storeNumberIndex, 1).getContents());
 
 		} catch (BiffException | IOException e) {
-			System.out
-					.println("Error Occured while reading data f,rom the excel file");
-			e.printStackTrace();
+			Reporter.log("Error Occured while reading data f,rom the excel file");
 		}
 
 	}

@@ -175,7 +175,6 @@ public class HomePage extends Common {
 		Reporter.log("Click on " + optionName + " Icon<br>");
 		wait.until(ExpectedConditions
 				.elementToBeClickable(otherCashFunctionOptionLink(optionName)));
-		sleep(500);
 		otherCashFunctionOptionLink(optionName).click();
 		Reporter.log(optionName + " Link Clicked<br>");
 	}
