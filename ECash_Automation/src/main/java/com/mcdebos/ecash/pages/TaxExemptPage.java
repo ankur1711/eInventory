@@ -47,6 +47,7 @@ public class TaxExemptPage extends Common {
 				driver.findElement(By
 						.xpath("(//button[@value='Show Results'])[" + index
 								+ "]"))).perform();
+		sleep(500);
 		// driver.findElement(By
 		// .xpath("(//button[@value='Show Results'])["+index+"]")).click();
 		Reporter.log("Show Results button clicked<br>");
