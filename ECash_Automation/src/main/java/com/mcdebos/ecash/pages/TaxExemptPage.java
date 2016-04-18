@@ -43,7 +43,7 @@ public class TaxExemptPage extends Common {
 		WebElement showResultsBtn = driver.findElement(By
 				.xpath("(//button[@value='Show Results'])[" + index + "]"));
 		showResultsBtn.click();
-		sleep(500);
+		sleep(1000);
 		Reporter.log("Show Results button clicked<br>");
 	}
 

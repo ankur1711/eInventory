@@ -35,26 +35,61 @@ public class TestResultListener extends TestListenerAdapter {
 	private static final String ESCAPE_PROPERTY = "org.uncommons.reportng.escape-output";
 	WritableWorkbook writableWorkbook;
 	WritableSheet writableSheet;
+	int noOfTestsExecutedCR = 0;
+	int noOfTestsExecutedFF = 0;
+	int noOfTestsExecutedIE = 0;
 
 	@Override
 	public void onStart(ITestContext testContext) {
 		Reporter.setEscapeHtml(false);
 		System.setProperty(ESCAPE_PROPERTY, "false");
-		createExcelReport();
+//		createExcelReport();
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult tr) {
 		super.onTestSuccess(tr);
+		String browserName = tr.getMethod().getXmlTest().getParameter("browser");
+		try {
+			if(browserName.equalsIgnoreCase("FIREFOX")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedFF);
+				noOfTestsExecutedFF++;
+			} else if(browserName.equalsIgnoreCase("CHROME")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedCR);
+				noOfTestsExecutedCR++;
+			} else if(browserName.equalsIgnoreCase("INTERNET-EXPLORER")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedIE);
+				noOfTestsExecutedIE++;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TestInfo annotaionMethod = tr.getMethod().getConstructorOrMethod()
 				.getMethod().getAnnotation(TestInfo.class);
 		enterTestCaseResult(annotaionMethod.userStory(),
 				annotaionMethod.testCaseID(),
-				annotaionMethod.testCaseDescription(), "Pass", "", "");
+				annotaionMethod.testCaseDescription(), "Pass", "", "", tr.getMethod().getXmlTest().getParameter("browser"));
 	}
 
 	@Override
 	public void onTestFailure(ITestResult tr) {
+		String browserName = tr.getMethod().getXmlTest().getParameter("browser");
+		try {
+			if(browserName.equalsIgnoreCase("FIREFOX")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedFF);
+				noOfTestsExecutedFF++;
+			} else if(browserName.equalsIgnoreCase("CHROME")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedCR);
+				noOfTestsExecutedCR++;
+			} else if(browserName.equalsIgnoreCase("INTERNET-EXPLORER")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedIE);
+				noOfTestsExecutedIE++;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String fileName = null;
 		try {
 			fileName = takeSnapShot(tr.getName(), tr);
@@ -74,17 +109,33 @@ public class TestResultListener extends TestListenerAdapter {
 		enterTestCaseResult(annotationMethod.userStory(),
 				annotationMethod.testCaseID(),
 				annotationMethod.testCaseDescription(), "Fail",
-				testFailureReasonPartial, "file:///" + fileName);
+				testFailureReasonPartial, "file:///" + fileName, tr.getMethod().getXmlTest().getParameter("browser"));
 		super.onTestFailure(tr);
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult tr) {
+		String browserName = tr.getMethod().getXmlTest().getParameter("browser");
+		try {
+			if(browserName.equalsIgnoreCase("FIREFOX")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedFF);
+				noOfTestsExecutedFF++;
+			} else if(browserName.equalsIgnoreCase("CHROME")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedCR);
+				noOfTestsExecutedCR++;
+			} else if(browserName.equalsIgnoreCase("INTERNET-EXPLORER")) {
+				createExcelReport(tr.getMethod().getXmlTest().getParameter("browser"), noOfTestsExecutedIE);
+				noOfTestsExecutedIE++;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TestInfo annotationMethod = tr.getMethod().getConstructorOrMethod()
 				.getMethod().getAnnotation(TestInfo.class);
 		enterTestCaseResult(annotationMethod.userStory(),
 				annotationMethod.testCaseID(),
-				annotationMethod.testCaseDescription(), "Skipped", "Configuration failure", "");
+				annotationMethod.testCaseDescription(), "Skipped", "Configuration failure", "", tr.getMethod().getXmlTest().getParameter("browser"));
 		super.onTestSkipped(tr);
 	}
 
@@ -138,7 +189,7 @@ public class TestResultListener extends TestListenerAdapter {
 		return currentDate;
 	}
 
-	private void createExcelReport() {
+	private void createExcelReport(String browser, int noOfTestsExecuted) throws IOException {
 		File excelFolder = new File(System.getProperty("user.dir") + "//ExcelReports");
 		// Checking whether ExcelReports folder exists
 		if(!excelFolder.exists()) {
@@ -146,59 +197,127 @@ public class TestResultListener extends TestListenerAdapter {
 			excelFolder.mkdir();
 		}
 		File exlFile = new File(System.getProperty("user.dir")
-				+ "//ExcelReports//Automation_Report_" + getCurrentDate()
+				+ "//ExcelReports//Automation_Report_" + browser + "_" + getCurrentDate()
 				+ ".xls");
-		if (exlFile.exists()) {
+//		if (exlFile.exists()) {
+//			exlFile.delete();
+//		}
+		
+		if(!exlFile.exists()) {
+			exlFile.createNewFile();
+			
+			try {
+				writableWorkbook = Workbook.createWorkbook(exlFile);
+			} catch (IOException e) {
+				Reporter.log("Unable to create the excel workbook");
+			}
+			
+			writableSheet = writableWorkbook.createSheet("Execution Report", 0);			
+		
+			WritableFont cellFont = new WritableFont(WritableFont.TIMES, 12);
+			try {
+				cellFont.setBoldStyle(WritableFont.BOLD);
+			} catch (WriteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			WritableCellFormat cellFormat = new WritableCellFormat(cellFont);
+			try {
+				cellFormat.setWrap(false);
+				cellFormat.setBorder(jxl.format.Border.ALL,
+						jxl.format.BorderLineStyle.THIN, jxl.format.Colour.BLACK);
+				cellFormat.setBackground(jxl.format.Colour.SKY_BLUE);
+				cellFormat.setAlignment(jxl.format.Alignment.CENTRE);
+				cellFormat
+						.setVerticalAlignment(jxl.format.VerticalAlignment.CENTRE);
+			} catch (WriteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			Label sNoLabel = new Label(0, 0, "S.No", cellFormat);
+			Label userStoryLabel = new Label(1, 0, "User Story #", cellFormat);
+			Label testCaseIDLabel = new Label(2, 0, "Test Case ID", cellFormat);
+			Label testCaseDescriptionLabel = new Label(3, 0,
+					"Test Case Description", cellFormat);
+			Label resultLabel = new Label(4, 0, "Result", cellFormat);
+			Label failureReasonLabel = new Label(5, 0, "Failure Reason", cellFormat);
+			Label screenShotLabel = new Label(6, 0, "Screen Shot", cellFormat);
+			
+			try {
+				writableSheet.addCell(sNoLabel);
+				writableSheet.addCell(userStoryLabel);
+				writableSheet.addCell(testCaseIDLabel);
+				writableSheet.addCell(testCaseDescriptionLabel);
+				writableSheet.addCell(resultLabel);
+				writableSheet.addCell(failureReasonLabel);
+				writableSheet.addCell(screenShotLabel);
+				createCellView(writableSheet);
+				writableWorkbook.write();
+				writableWorkbook.close();
+			} catch (WriteException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(noOfTestsExecuted <= 0) {
 			exlFile.delete();
-		}
-		try {
-			writableWorkbook = Workbook.createWorkbook(exlFile);
-		} catch (IOException e) {
-			Reporter.log("Unable to create the excel workbook");
-		}
-		writableSheet = writableWorkbook.createSheet("Execution Report", 0);
-		WritableFont cellFont = new WritableFont(WritableFont.TIMES, 12);
-		try {
-			cellFont.setBoldStyle(WritableFont.BOLD);
-		} catch (WriteException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		WritableCellFormat cellFormat = new WritableCellFormat(cellFont);
-		try {
-			cellFormat.setWrap(false);
-			cellFormat.setBorder(jxl.format.Border.ALL,
-					jxl.format.BorderLineStyle.THIN, jxl.format.Colour.BLACK);
-			cellFormat.setBackground(jxl.format.Colour.SKY_BLUE);
-			cellFormat.setAlignment(jxl.format.Alignment.CENTRE);
-			cellFormat
-					.setVerticalAlignment(jxl.format.VerticalAlignment.CENTRE);
-		} catch (WriteException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		Label sNoLabel = new Label(0, 0, "S.No", cellFormat);
-		Label userStoryLabel = new Label(1, 0, "User Story #", cellFormat);
-		Label testCaseIDLabel = new Label(2, 0, "Test Case ID", cellFormat);
-		Label testCaseDescriptionLabel = new Label(3, 0,
-				"Test Case Description", cellFormat);
-		Label resultLabel = new Label(4, 0, "Result", cellFormat);
-		Label failureReasonLabel = new Label(5, 0, "Failure Reason", cellFormat);
-		Label screenShotLabel = new Label(6, 0, "Screen Shot", cellFormat);
-		try {
-			writableSheet.addCell(sNoLabel);
-			writableSheet.addCell(userStoryLabel);
-			writableSheet.addCell(testCaseIDLabel);
-			writableSheet.addCell(testCaseDescriptionLabel);
-			writableSheet.addCell(resultLabel);
-			writableSheet.addCell(failureReasonLabel);
-			writableSheet.addCell(screenShotLabel);
-			createCellView(writableSheet);
-			writableWorkbook.write();
-			writableWorkbook.close();
-		} catch (WriteException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			exlFile.createNewFile();
+			
+			try {
+				writableWorkbook = Workbook.createWorkbook(exlFile);
+			} catch (IOException e) {
+				Reporter.log("Unable to create the excel workbook");
+			}
+			
+			writableSheet = writableWorkbook.createSheet("Execution Report", 0);			
+		
+			WritableFont cellFont = new WritableFont(WritableFont.TIMES, 12);
+			try {
+				cellFont.setBoldStyle(WritableFont.BOLD);
+			} catch (WriteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			WritableCellFormat cellFormat = new WritableCellFormat(cellFont);
+			try {
+				cellFormat.setWrap(false);
+				cellFormat.setBorder(jxl.format.Border.ALL,
+						jxl.format.BorderLineStyle.THIN, jxl.format.Colour.BLACK);
+				cellFormat.setBackground(jxl.format.Colour.SKY_BLUE);
+				cellFormat.setAlignment(jxl.format.Alignment.CENTRE);
+				cellFormat
+						.setVerticalAlignment(jxl.format.VerticalAlignment.CENTRE);
+			} catch (WriteException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			Label sNoLabel = new Label(0, 0, "S.No", cellFormat);
+			Label userStoryLabel = new Label(1, 0, "User Story #", cellFormat);
+			Label testCaseIDLabel = new Label(2, 0, "Test Case ID", cellFormat);
+			Label testCaseDescriptionLabel = new Label(3, 0,
+					"Test Case Description", cellFormat);
+			Label resultLabel = new Label(4, 0, "Result", cellFormat);
+			Label failureReasonLabel = new Label(5, 0, "Failure Reason", cellFormat);
+			Label screenShotLabel = new Label(6, 0, "Screen Shot", cellFormat);
+			
+			try {
+				writableSheet.addCell(sNoLabel);
+				writableSheet.addCell(userStoryLabel);
+				writableSheet.addCell(testCaseIDLabel);
+				writableSheet.addCell(testCaseDescriptionLabel);
+				writableSheet.addCell(resultLabel);
+				writableSheet.addCell(failureReasonLabel);
+				writableSheet.addCell(screenShotLabel);
+				createCellView(writableSheet);
+				writableWorkbook.write();
+				writableWorkbook.close();
+			} catch (WriteException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -210,21 +329,20 @@ public class TestResultListener extends TestListenerAdapter {
 			workingSheet.setColumnView(x, cell);
 		}
 	}
-
 	private void enterTestCaseResult(String userStory, String testCaseID,
 			String testCaseDescription, String result, String failureReason,
-			String screenShotPath) {
+			String screenShotPath, String browser) {
 		Workbook workbook = null;
 		WritableWorkbook workbookCopy = null;
 		try {
 			workbook = Workbook.getWorkbook(new File(System
 					.getProperty("user.dir")
-					+ "//ExcelReports//Automation_Report_"
+					+ "//ExcelReports//Automation_Report_" + browser + "_"
 					+ getCurrentDate()
 					+ ".xls"));
 			workbookCopy = Workbook.createWorkbook(
 					new File(System.getProperty("user.dir")
-							+ "//ExcelReports//Temp_Automation_Report_"
+							+ "//ExcelReports//Temp_Automation_Report_" + browser + "_"
 							+ getCurrentDate() + ".xls"), workbook);
 		} catch (BiffException | IOException e1) {
 			// TODO Auto-generated catch block
@@ -313,12 +431,12 @@ public class TestResultListener extends TestListenerAdapter {
 
 		try {
 			File tempFile = new File(System.getProperty("user.dir")
-					+ "//ExcelReports//Temp_Automation_Report_"
+					+ "//ExcelReports//Temp_Automation_Report_" + browser + "_"
 					+ getCurrentDate() + ".xls");
 			workbook = Workbook.getWorkbook(tempFile);
 			workbookCopy = Workbook.createWorkbook(
 					new File(System.getProperty("user.dir")
-							+ "//ExcelReports//Automation_Report_"
+							+ "//ExcelReports//Automation_Report_" + browser + "_"
 							+ getCurrentDate() + ".xls"), workbook);
 			workbook.close();
 			tempFile.delete();
@@ -328,31 +446,5 @@ public class TestResultListener extends TestListenerAdapter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		TestResultListener c = new TestResultListener();
-		for (int i = 0; i <= 100001; i++) {
-			// c.createExcelReport();
-			c.enterTestCaseResult("US 567", "TC 356", "Tset ddhgfh", "Pass",
-					"", "");
-			c.enterTestCaseResult(
-					"US 554",
-					"TC 323",
-					"Tset ddhgfh",
-					"Fail",
-					"Assertion Error",
-					"file:///C:\\Users\\admin\\Documents\\eProfitabilityEcash\\eProfitabilityEcash\\eProfitability_Ecash\\ScreenShots\\pathwayToDCD1439499944447.png");
-			c.enterTestCaseResult("US 565", "TC 312", "Tset ddhgfh", "Pass",
-					"", "");
-			c.enterTestCaseResult(
-					"US 512",
-					"TC 398",
-					"Tset ddhgfh",
-					"Fail",
-					"Trigger Issue",
-					"file:///C:\\Users\\admin\\Documents\\eProfitabilityEcash\\eProfitabilityEcash\\eProfitability_Ecash\\ScreenShots\\pathwayToDCD1439499944447.png");
-		}
-
 	}
 }
