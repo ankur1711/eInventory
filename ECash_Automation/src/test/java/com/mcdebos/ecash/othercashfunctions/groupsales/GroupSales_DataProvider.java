@@ -6,9 +6,9 @@ import com.mcdebos.ecash.excelutils.GroupSalesData;
 
 public class GroupSales_DataProvider {
 	@DataProvider(name = "TC_1298")
-	public static Object[][] DCDTestData() {
+	public static Object[][] GroupSalesTestData() {
 		GroupSalesData groupsalesdata = new GroupSalesData("TC_1298");
-		return new Object[][] {{groupsalesdata}};
+		return new Object[][] { {groupsalesdata} };
 	}
 
 }

@@ -34,7 +34,7 @@ public abstract class Common {
 
 	public Common(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 50);
+		wait = new WebDriverWait(driver, 100);
 		action = new Actions(driver);
 	}
 

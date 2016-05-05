@@ -21,8 +21,6 @@ import com.mcdebos.ecash.excelutils.GroupSalesData;
 import com.mcdebos.ecash.pages.PageObjects;
 
 public class TestTaxExemptSales extends PageObjects {
-	public WebDriver driver;
-	public WebDriverWait wait;
 
 	@BeforeMethod(alwaysRun = true)
 	@Parameters({ "browser", "url" })
@@ -169,7 +167,7 @@ public class TestTaxExemptSales extends PageObjects {
 		getTaxExemptSalesPage(driver).openStartDateDatePicker();
 		getTaxExemptSalesPage(driver).selectDate(getTaxExemptSalesPage(driver).taxExemptStartDatePrevButton(),
 				getTaxExemptSalesPage(driver).taxExemptStartDateNextButton(),
-				getTaxExemptSalesPage(driver).getStartDate(), "-10", "3");
+				getTaxExemptSalesPage(driver).getStartDate(), "-10", "0");
 		// Select the End Date
 		// getTaxExemptSalesPage(driver).openEndDateDatePicker();
 		// getTaxExemptSalesPage(driver).selectDate(getTaxExemptSalesPage(driver).taxExemptEndDatePrevButton(),
@@ -428,7 +426,6 @@ public class TestTaxExemptSales extends PageObjects {
 
 	}
 
-
 	@Test(testName = "Verifying details from Tax Exempt were entered in DCD, those details need to populate on Tax Exempt Landing Page.", description = "Verifying details from Tax Exempts were entered in DCD, those details need to populate on Tax Exempts Landing Page.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 3)
 	@TestInfo(testCaseID = "TC 3481", userStory = "US440", testCaseDescription = "Verifying details from Tax Exempt were entered in DCD, those details need to populate on Tax Exempt Landing Page.")
 	public void verifyUserAbleToEditTaxExemptSalesForFinalizedDeposit(GroupSalesData data) {
@@ -480,7 +477,6 @@ public class TestTaxExemptSales extends PageObjects {
 		}
 	}
 
-
 	@Test(testName = "Verifying details from Tax Exempt were entered in DCD, those details need to populate on Tax Exempt Landing Page.", description = "Viewing and verifying that following Fields are manual entry fields  in tax exempt Sales Detail Entry Page on Cloud App.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 4)
 	@TestInfo(testCaseID = "TC 3480", userStory = "US440", testCaseDescription = "Viewing and verifying that following Fields are manual entry fields  in tax exempt Sales Detail Entry Page on Cloud App.")
 	public void verifyManualEntryFields(GroupSalesData data) {
@@ -501,7 +497,7 @@ public class TestTaxExemptSales extends PageObjects {
 			getTaxExemptSalesPage(driver).organizationTextBox().click();
 			// Enter Organization Name
 			wait.until(
-					ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='tax_exempt_organization_input']")))
+					ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='tax_exempt_organization_input0']")))
 					.clear();
 			getTaxExemptSalesPage(driver).organizationTextBox().sendKeys("Test Organization" + Integer.toString(count));
 
@@ -550,9 +546,12 @@ public class TestTaxExemptSales extends PageObjects {
 			getTaxExemptSalesPage(driver).zipCodeTextBox().clear();
 			getTaxExemptSalesPage(driver).zipCodeTextBox().sendKeys("12345");
 
-			/*Assert.assertFalse(getTaxExemptSalesPage(driver).zipCodePopUpValidation().isDisplayed(),
-					"Zip Code error message is dispaled When entering only 5 digits numeric values");
-*/
+			/*
+			 * Assert.assertFalse(getTaxExemptSalesPage(driver).
+			 * zipCodePopUpValidation().isDisplayed(),
+			 * "Zip Code error message is dispaled When entering only 5 digits numeric values"
+			 * );
+			 */
 			// Select State
 			getTaxExemptSalesPage(driver).selectState(1);
 			// Enter Email Address
@@ -570,43 +569,51 @@ public class TestTaxExemptSales extends PageObjects {
 
 	}
 
-	@Deprecated
-	@Test(testName = "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App.", description = "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 5)
-	@TestInfo(testCaseID = "TC 3478", userStory = "US440", testCaseDescription = "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App.")
-	public void verifyAutopopulatedFields(GroupSalesData data) {
-		// Select user number
-		getHomePage(driver).selectUser(data.getUserNumber());
-		// Select Store Number
-		getHomePage(driver).selectStore(data.getStoreNumber());
-		// Open E-Cash -Other Cash Functions Menu
-		getHomePage(driver).openOtherCashFunctionsMenu();
-		// Select the Option as Group Sales
-		getHomePage(driver).selectOtherCashFunctionsOptions("Group Sales");
-		getTaxExemptSalesPage(driver).clickTaxExemptSales();
-		// Verify the
-		List<WebElement> editButtonElemens = driver.findElements(By.xpath(
-				"//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"));
-		for (int count = 0; count < editButtonElemens.size(); count++) {
-			wait.until(ExpectedConditions.elementToBeClickable(By
-					.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]")));
-
-			driver.findElement(By
-					.xpath("(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
-							+ (count + 1) + "]"))
-					.click();
-			Reporter.log("OPen the " + (count + 1) + " entry in Tax Exempt Sales<br>");
-			// Tax Amount Field is not enabled
-			Assert.assertFalse(getTaxExemptSalesPage(driver).taxAmount().isEnabled(),
-					"User should be able to view Amout Field is Enabled");
-
-			Assert.assertFalse(getTaxExemptSalesPage(driver).autoPopulatedFields.isDisplayed(),
-					"User should be able to view the all auto-populated fields are Enabled");
-			getTaxExemptSalesPage(driver).closeTaxExemptModularWindow().click();
-
-		}
-
-	}
+	/*
+	 * @Deprecated
+	 * 
+	 * @Test(testName =
+	 * "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App."
+	 * , description =
+	 * "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App."
+	 * , dataProvider = "TC_1298", dataProviderClass =
+	 * GroupSales_DataProvider.class, priority = 5)
+	 * 
+	 * @TestInfo(testCaseID = "TC 3478", userStory = "US440",
+	 * testCaseDescription =
+	 * "Viewing and verifying that following Fields are auto-populated in tax exempt Sales Detail Entry Page in Cloud App."
+	 * ) public void verifyAutopopulatedFields(GroupSalesData data) { // Select
+	 * user number getHomePage(driver).selectUser(data.getUserNumber()); //
+	 * Select Store Number
+	 * getHomePage(driver).selectStore(data.getStoreNumber()); // Open E-Cash
+	 * -Other Cash Functions Menu
+	 * getHomePage(driver).openOtherCashFunctionsMenu(); // Select the Option as
+	 * Group Sales getHomePage(driver).selectOtherCashFunctionsOptions(
+	 * "Group Sales"); getTaxExemptSalesPage(driver).clickTaxExemptSales(); //
+	 * Verify the List<WebElement> editButtonElemens =
+	 * driver.findElements(By.xpath(
+	 * "//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button"
+	 * )); for (int count = 0; count < editButtonElemens.size(); count++) {
+	 * wait.until(ExpectedConditions.elementToBeClickable(By .xpath(
+	 * "(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
+	 * + (count + 1) + "]")));
+	 * 
+	 * driver.findElement(By .xpath(
+	 * "(//table[@id='tax_exempt_table']/tbody/tr/td[contains(text(),'Finalized')]/following-sibling::td/eb-button)["
+	 * + (count + 1) + "]")) .click(); Reporter.log("OPen the " + (count + 1) +
+	 * " entry in Tax Exempt Sales<br>"); // Tax Amount Field is not enabled
+	 * Assert.assertFalse(getTaxExemptSalesPage(driver).taxAmount().isEnabled(),
+	 * "User should be able to view Amout Field is Enabled");
+	 * 
+	 * Assert.assertFalse(getTaxExemptSalesPage(driver).autoPopulatedFields.
+	 * isDisplayed(),
+	 * "User should be able to view the all auto-populated fields are Enabled");
+	 * getTaxExemptSalesPage(driver).closeTaxExemptModularWindow().click();
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 
 	@Test(testName = "Verify that store level user is able to filter Tax Exempt sales entries by organization name,user Id and Deposit code  on Tax Exempt sales landing page.", description = "Verify that store level user is able to filter Tax Exempt sales entries by organization name,user Id and Deposit codeon Tax Exempt sales landing page.", dataProvider = "TC_1298", dataProviderClass = GroupSales_DataProvider.class, priority = 6)
 	@TestInfo(testCaseID = "TC1494", userStory = "US442", testCaseDescription = "Verify that store level user is able to filter Tax Exempt sales entries by organization name,user Id and Deposit code on Tax Exempt sales landing page.")

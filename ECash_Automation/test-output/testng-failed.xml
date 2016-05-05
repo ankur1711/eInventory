@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Regression Test Suite]">
-  <parameter name="browser" value="firefox"/>
-  <parameter name="url" value="https://iit.ebos.qsrsoft.com/#"/>
+<suite name="Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Regression Test Suite]]]]]" parallel="tests">
+  <parameter name="browser" value="internet-explorer"/>
+  <parameter name="url" value="https://iit.ebos.qsrsoft.com"/>
   <listeners>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     <listener class-name="com.mcdebos.common.listeners.TestResultListener"/>
   </listeners>
-  <test name="Drawer Countdown  - US 84(failed)">
+  <test name="Group Sales Bundle - IE(failed)(failed)(failed)(failed)(failed)" parallel="tests">
+    <parameter name="browser" value="internet-explorer"/>
     <classes>
       <class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
         <methods>
-          <include name="sortTaxExemptSalesDetailsByFieldDisplayedOnTaxExemptSalesPage"/>
           <include name="tearDown"/>
+          <include name="viewDateRangeOptions" invocation-numbers="0"/>
           <include name="setUp"/>
+          <include name="viewTotalOfTaxExemptSales" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales -->
     </classes>
-  </test> <!-- Drawer Countdown  - US 84(failed) -->
-</suite> <!-- Failed suite [Regression Test Suite] -->
+  </test> <!-- Group Sales Bundle - IE(failed)(failed)(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Regression Test Suite]]]]] -->

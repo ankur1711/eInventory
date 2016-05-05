@@ -80,12 +80,14 @@ public class HomePage extends Common {
 	}
 
 	public void selectUser(String userNumber) {
+		sleep(500);
 		userIcon.click();
 		Reporter.log("Click on User Drop Down<br>");
 		Reporter.log("Select the User as " + userNumber + "<br>");
+		sleep(500);
 		driver.findElement(
 				By.xpath(".//*[@id='user-settings-dropdown']//a[contains(text(),'"
-						+ userNumber + "')]")).click();
+					+ userNumber + "')]")).click();
 	}
 
 	public void selectDrawerCountDown() {

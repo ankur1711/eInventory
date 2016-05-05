@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Test Suite" parallel="tests" thread-count="5">
-	
+
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		<listener class-name="com.mcdebos.common.listeners.TestResultListener" />
 	</listeners>
-	
-	<parameter name="url" value="https://iit.ebos.qsrsoft.com"/>
-	
-	<test name="Group Sales Bundle - FF">
+	<parameter name="url" value="https://iit.ebos.qsrsoft.com" />
+	<!-- <test name="Group Sales Bundle - FF">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage"/>
-			<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales"/>
-			<!-- <methods>
-					<include
-						name="viewDateRangeOptions" />
+			<class
+				name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage" />
+			<class
+				name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
+				<methods>
+					<include name="viewDateRangeOptions" />
 				</methods>
-			</class> -->
+			</class>
 		</classes>
-	</test>
-	
+	</test> -->
+<!-- 
 	<test name="Group Sales Bundle - CHROME">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage"/>
-			<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales"/>
-		</classes>
-	</test>
-	
-	<!-- <test name="Group Sales Bundle - IE">
-		<parameter name="browser" value="internet-explorer" />
-		<classes>
-			<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage"/>
-			<class name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales"/>
+			<class
+				name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage" />
+			<class
+				name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales">
+				<methods>
+					<include name="verifyUserAbleToEditTaxExemptSalesForFinalizedDeposit" />
+				</methods>
+			</class>
 		</classes>
 	</test> -->
-		
+
+	<test name="Group Sales Bundle - IE">
+		<parameter name="browser" value="internet-explorer" />
+		<classes>
+			<class
+				name="com.mcdebos.ecash.othercashfunctions.groupsales.TestGroupSalesLandingPage" />
+			<class
+				name="com.mcdebos.ecash.othercashfunctions.groupsales.TestTaxExemptSales" />
+		</classes>
+	</test>
+
 </suite> <!-- Regression Test Suite -->
 
